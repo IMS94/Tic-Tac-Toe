@@ -44,6 +44,8 @@
             this.lblReplay = new System.Windows.Forms.Label();
             this.lblMenu = new System.Windows.Forms.Label();
             this.labelStatus = new System.Windows.Forms.Label();
+            this.lblscoreplayer = new System.Windows.Forms.Label();
+            this.lblscorecomputer = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -206,7 +208,7 @@
             this.lblUser.BackColor = System.Drawing.Color.Transparent;
             this.lblUser.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUser.ForeColor = System.Drawing.Color.Gray;
-            this.lblUser.Location = new System.Drawing.Point(32, 34);
+            this.lblUser.Location = new System.Drawing.Point(32, 24);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(76, 25);
             this.lblUser.TabIndex = 10;
@@ -218,7 +220,7 @@
             this.LBLPC.BackColor = System.Drawing.Color.Transparent;
             this.LBLPC.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LBLPC.ForeColor = System.Drawing.Color.Gray;
-            this.LBLPC.Location = new System.Drawing.Point(198, 34);
+            this.LBLPC.Location = new System.Drawing.Point(198, 24);
             this.LBLPC.Name = "LBLPC";
             this.LBLPC.Size = new System.Drawing.Size(113, 25);
             this.LBLPC.TabIndex = 11;
@@ -267,6 +269,30 @@
             this.labelStatus.Text = "          ";
             this.labelStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // lblscoreplayer
+            // 
+            this.lblscoreplayer.AutoSize = true;
+            this.lblscoreplayer.BackColor = System.Drawing.Color.Transparent;
+            this.lblscoreplayer.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblscoreplayer.ForeColor = System.Drawing.Color.White;
+            this.lblscoreplayer.Location = new System.Drawing.Point(40, 49);
+            this.lblscoreplayer.Name = "lblscoreplayer";
+            this.lblscoreplayer.Size = new System.Drawing.Size(17, 25);
+            this.lblscoreplayer.TabIndex = 13;
+            this.lblscoreplayer.Text = " ";
+            // 
+            // lblscorecomputer
+            // 
+            this.lblscorecomputer.AutoSize = true;
+            this.lblscorecomputer.BackColor = System.Drawing.Color.Transparent;
+            this.lblscorecomputer.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblscorecomputer.ForeColor = System.Drawing.Color.White;
+            this.lblscorecomputer.Location = new System.Drawing.Point(206, 49);
+            this.lblscorecomputer.Name = "lblscorecomputer";
+            this.lblscorecomputer.Size = new System.Drawing.Size(17, 25);
+            this.lblscorecomputer.TabIndex = 14;
+            this.lblscorecomputer.Text = " ";
+            // 
             // FormPlayVsComputer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -274,6 +300,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(328, 268);
             this.ControlBox = false;
+            this.Controls.Add(this.lblscorecomputer);
+            this.Controls.Add(this.lblscoreplayer);
             this.Controls.Add(this.labelStatus);
             this.Controls.Add(this.lblMenu);
             this.Controls.Add(this.lblReplay);
@@ -307,5 +335,7 @@
         private System.Windows.Forms.Label lblReplay;
         private System.Windows.Forms.Label lblMenu;
         private System.Windows.Forms.Label labelStatus;
+        private System.Windows.Forms.Label lblscoreplayer;
+        private System.Windows.Forms.Label lblscorecomputer;
     }
 }

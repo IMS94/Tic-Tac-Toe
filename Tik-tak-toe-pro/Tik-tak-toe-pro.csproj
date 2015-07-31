@@ -59,71 +59,80 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormPlayVsHuman.cs">
+    <Compile Include="Forms\FormLeaderBoard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPlayVsHuman.Designer.cs">
-      <DependentUpon>FormPlayVsHuman.cs</DependentUpon>
+    <Compile Include="Forms\FormLeaderBoard.Designer.cs">
+      <DependentUpon>FormLeaderBoard.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPlayVsComputer.cs">
+    <Compile Include="Forms\FormPlayVsComputer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPlayVsComputer.Designer.cs">
+    <Compile Include="Forms\FormPlayVsComputer.Designer.cs">
       <DependentUpon>FormPlayVsComputer.cs</DependentUpon>
     </Compile>
-    <Compile Include="IPAddressForm.cs">
+    <Compile Include="Forms\FormPlayVsHuman.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IPAddressForm.Designer.cs">
+    <Compile Include="Forms\FormPlayVsHuman.Designer.cs">
+      <DependentUpon>FormPlayVsHuman.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\IPAddressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\IPAddressForm.Designer.cs">
       <DependentUpon>IPAddressForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Process\LeaderBoard.cs" />
     <Compile Include="PlayModes\Human.cs" />
     <Compile Include="PlayModes\Medium.cs" />
     <Compile Include="PlayModes\PlayModel.cs" />
     <Compile Include="PlayModes\Easy.cs" />
+    <Compile Include="Process\LeaderBoard.cs" />
     <Compile Include="Process\NormalPlay.cs" />
     <Compile Include="PlayModes\Hard.cs" />
     <Compile Include="Process\Setting.cs" />
     <Compile Include="Process\SocketManagement.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MultiplayerForm.cs">
+    <Compile Include="Forms\MultiplayerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MultiplayerForm.Designer.cs">
+    <Compile Include="Forms\MultiplayerForm.Designer.cs">
       <DependentUpon>MultiplayerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SettingForm.cs">
+    <Compile Include="Forms\SettingForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SettingForm.Designer.cs">
+    <Compile Include="Forms\SettingForm.Designer.cs">
       <DependentUpon>SettingForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="StartForm.cs">
+    <Compile Include="Forms\StartForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StartForm.Designer.cs">
+    <Compile Include="Forms\StartForm.Designer.cs">
       <DependentUpon>StartForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Process\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormPlayVsHuman.resx">
-      <DependentUpon>FormPlayVsHuman.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormLeaderBoard.resx">
+      <DependentUpon>FormLeaderBoard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPlayVsComputer.resx">
+    <EmbeddedResource Include="Forms\FormPlayVsComputer.resx">
       <DependentUpon>FormPlayVsComputer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IPAddressForm.resx">
+    <EmbeddedResource Include="Forms\FormPlayVsHuman.resx">
+      <DependentUpon>FormPlayVsHuman.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\IPAddressForm.resx">
       <DependentUpon>IPAddressForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MultiplayerForm.resx">
+    <EmbeddedResource Include="Forms\MultiplayerForm.resx">
       <DependentUpon>MultiplayerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SettingForm.resx">
+    <EmbeddedResource Include="Forms\SettingForm.resx">
       <DependentUpon>SettingForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StartForm.resx">
+    <EmbeddedResource Include="Forms\StartForm.resx">
       <DependentUpon>StartForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -154,6 +163,7 @@
     <Content Include="Images\settings.jpg" />
     <Content Include="Images\vsComputerDarkDark.jpg" />
     <Content Include="Images\vsHuman.jpg" />
+    <None Include="Resources\footbal field.jpg" />
     <None Include="Resources\backcheck2.jpg" />
     <None Include="Resources\backcheck.jpg" />
     <None Include="Resources\back.jpg" />

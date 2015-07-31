@@ -16,8 +16,11 @@ namespace Tik_tak_toe_pro
             
             if (countUser == 0) { userTurn1X = X; userTurn1Y = Y; }
             else if (countUser == 1) { userTurn2X = X; userTurn2Y = Y; }
-            grid[X, Y] = turn;
-            countUser = countUser + 1;
+            if (grid[X, Y] == 0)
+            {
+                grid[X, Y] = turn;
+                countUser = countUser + 1;
+            }
 
         }
         public override string pcPlay(int[,] grid, int turn)

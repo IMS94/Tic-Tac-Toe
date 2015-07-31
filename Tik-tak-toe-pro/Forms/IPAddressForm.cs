@@ -61,6 +61,15 @@ namespace Tik_tak_toe_pro
             if (hasStarted) {
                 int[][]data=sm.getBoard();
                 Console.WriteLine(data);
+                
+                
+                for (int y = 0; y < data.Length; y++)
+                {
+                    for (int x = 0; x < 3; x++)
+                    {
+                        Console.WriteLine(data[y][x]);
+                    }
+                }
             }
         }
 
@@ -82,9 +91,9 @@ namespace Tik_tak_toe_pro
             bool hasStarted = sm.startAsServer();
             
             if(hasStarted){
-                int[][] grid=new int[3][3];
+                int[][] grid=new int[3][];
                 for (int y = 0; y < grid.Length; y++)
-                    for (int x = 0; x < grid[y].Length; x++)
+                    for (int x = 0; x < 3; x++)
                         grid[y][x] = 1;
 
                 sm.sendBoard(grid);

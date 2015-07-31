@@ -51,6 +51,8 @@ namespace Tik_tak_toe_pro
                 playModel.pcPlay(grid, playModel.pcMark);
                 this.refreshVal();
             }
+            lblscorecomputer.Text = setting.current[1].ToString();
+            lblscoreplayer.Text = setting.current[2].ToString();
         }
 
         public void refreshVal() 
@@ -196,8 +198,10 @@ namespace Tik_tak_toe_pro
 
         private void lblMenu_Click(object sender, EventArgs e)
         {
+            setting.current = new int[3];
             StartForm st = new StartForm(setting);
             st.Visible = true;
+            
             this.Dispose();
            
         }
@@ -211,6 +215,7 @@ namespace Tik_tak_toe_pro
             playModel.pcPlay(grid, playModel.pcMark);
             this.gameDecision(NormalPlay.checkStatus(grid, playModel.pcMark), true);
             this.refreshVal();
+            
         }
 
         private void lbl12_Click(object sender, EventArgs e)
@@ -316,6 +321,7 @@ namespace Tik_tak_toe_pro
             {
                 panel1.BackColor = Color.DarkGray;
                 labelStatus.Text = "Match Drawn";
+                setting.current[0] += 1;
                 panel1.Enabled = false;
 
             }
@@ -324,6 +330,10 @@ namespace Tik_tak_toe_pro
                 {
                     panel1.BackColor = Color.DarkGray;
                     labelStatus.Text = "Computer Won";
+                    setting.current[1] += 1;
+                    setting.current[0] += 1;
+                    lblscorecomputer.Text = setting.current[1].ToString();
+                    lblscoreplayer.Text = setting.current[2].ToString();
                     panel1.Enabled = false;
 
                 }
@@ -331,8 +341,20 @@ namespace Tik_tak_toe_pro
             {
                 panel1.BackColor = Color.DarkGray;
                 labelStatus.Text = "Congradulations,You Won";
+                setting.current[2] += 1;
+                setting.current[0] += 1;
+                lblscorecomputer.Text = setting.current[1].ToString();
+                lblscoreplayer.Text = setting.current[2].ToString();
                 panel1.Enabled = false;
 
+            }
+
+            if (setting.current[0] == 10)
+            {
+
+                FormLeaderBoard formLeaderBoard = new FormLeaderBoard(setting.leaderBoard, setting);
+                formLeaderBoard.Visible = true;
+                
             }
            
 

@@ -55,6 +55,15 @@ namespace Tik_tak_toe_pro
             this.Dispose();
         }
 
+        private void lblleaderboard_Click(object sender, EventArgs e)
+        {
+            FormLeaderBoard formLeaaderBoard = new FormLeaderBoard(setting.leaderBoard,setting);
+            formLeaaderBoard.setinvisibleNewEntryComponents();
+            formLeaaderBoard.Visible = true;
+        }
+
+       
+
     }     
 }
 

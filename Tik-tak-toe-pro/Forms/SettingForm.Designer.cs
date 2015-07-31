@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingForm));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblleaderboard = new System.Windows.Forms.Label();
             this.groupBoxLevels = new System.Windows.Forms.GroupBox();
             this.levelMedium = new System.Windows.Forms.RadioButton();
             this.levelEasy = new System.Windows.Forms.RadioButton();
@@ -43,6 +44,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.lblleaderboard);
             this.panel2.Controls.Add(this.groupBoxLevels);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
@@ -51,6 +53,18 @@
             this.panel2.Size = new System.Drawing.Size(313, 251);
             this.panel2.TabIndex = 1;
             // 
+            // lblleaderboard
+            // 
+            this.lblleaderboard.AutoSize = true;
+            this.lblleaderboard.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblleaderboard.ForeColor = System.Drawing.Color.Lime;
+            this.lblleaderboard.Location = new System.Drawing.Point(161, 209);
+            this.lblleaderboard.Name = "lblleaderboard";
+            this.lblleaderboard.Size = new System.Drawing.Size(148, 25);
+            this.lblleaderboard.TabIndex = 6;
+            this.lblleaderboard.Text = "Leader Board >>";
+            this.lblleaderboard.Click += new System.EventHandler(this.lblleaderboard_Click);
+            // 
             // groupBoxLevels
             // 
             this.groupBoxLevels.Controls.Add(this.levelMedium);
@@ -58,9 +72,9 @@
             this.groupBoxLevels.Controls.Add(this.levelHard);
             this.groupBoxLevels.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxLevels.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.groupBoxLevels.Location = new System.Drawing.Point(27, 50);
+            this.groupBoxLevels.Location = new System.Drawing.Point(42, 50);
             this.groupBoxLevels.Name = "groupBoxLevels";
-            this.groupBoxLevels.Size = new System.Drawing.Size(177, 174);
+            this.groupBoxLevels.Size = new System.Drawing.Size(141, 143);
             this.groupBoxLevels.TabIndex = 5;
             this.groupBoxLevels.TabStop = false;
             this.groupBoxLevels.Text = "Level";
@@ -70,7 +84,7 @@
             this.levelMedium.AutoSize = true;
             this.levelMedium.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.levelMedium.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.levelMedium.Location = new System.Drawing.Point(42, 78);
+            this.levelMedium.Location = new System.Drawing.Point(17, 61);
             this.levelMedium.Name = "levelMedium";
             this.levelMedium.Size = new System.Drawing.Size(97, 29);
             this.levelMedium.TabIndex = 2;
@@ -83,7 +97,7 @@
             this.levelEasy.AutoSize = true;
             this.levelEasy.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.levelEasy.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.levelEasy.Location = new System.Drawing.Point(42, 38);
+            this.levelEasy.Location = new System.Drawing.Point(17, 21);
             this.levelEasy.Name = "levelEasy";
             this.levelEasy.Size = new System.Drawing.Size(65, 29);
             this.levelEasy.TabIndex = 1;
@@ -96,7 +110,7 @@
             this.levelHard.AutoSize = true;
             this.levelHard.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.levelHard.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.levelHard.Location = new System.Drawing.Point(42, 121);
+            this.levelHard.Location = new System.Drawing.Point(17, 104);
             this.levelHard.Name = "levelHard";
             this.levelHard.Size = new System.Drawing.Size(69, 29);
             this.levelHard.TabIndex = 3;
@@ -109,7 +123,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Location = new System.Drawing.Point(210, 199);
+            this.label2.Location = new System.Drawing.Point(22, 209);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 25);
             this.label2.TabIndex = 4;
@@ -157,6 +171,7 @@
         private System.Windows.Forms.RadioButton levelEasy;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBoxLevels;
+        private System.Windows.Forms.Label lblleaderboard;
     }
 }
 

@@ -9,13 +9,13 @@ namespace Tik_tak_toe_pro
     //reference[0]=score.toSring()   reference[1]=name;
     public class LeaderBoard
     {
-        List<int> easyBoardScore { get; set; }
-        List<int> mediumBoardScore { get; set; }
-        List<int> hardBoardScore { get; set; }
+        public List<int> easyBoardScore { get; set; }
+        public List<int> mediumBoardScore { get; set; }
+        public List<int> hardBoardScore { get; set; }
 
-        List<string[]> easyBoardNameRefs { get; set; }
-        List<string[]> mediumBoardNameRefs { get; set; }
-        List<string[]> hardBoardNameRefs { get; set; }
+        public List<string[]> easyBoardNameRefs { get; set; }
+        public List<string[]> mediumBoardNameRefs { get; set; }
+        public List<string[]> hardBoardNameRefs { get; set; }
 
         public LeaderBoard()
         {
@@ -29,12 +29,17 @@ namespace Tik_tak_toe_pro
         }
 
 
-
+        public int getScore(int countPC,int countUser ) {
+            //method to calculate score
+            int score = 50;
+            score = score + 5 * countUser - 5 * countPC;
+            return score;
+        
+        }
         public void addNewScore(string name, int countPC, int countUser, List<string[]> boardNames,List<int> boardScore)
         {
-            //method to calculate score
-            int score=50;
-            score = score + 5 * countUser - 5 * countPC;
+            int score;
+            score = getScore(countPC, countUser);
             string[] reference = new string[2];
             reference[0] = score.ToString();
             reference[1] = name;
