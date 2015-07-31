@@ -13,10 +13,33 @@ namespace Tik_tak_toe_pro
 {
     public partial class MultiplayerForm : Form
     {
-        public MultiplayerForm()
+        Setting setting;
+        public MultiplayerForm(Setting setting)
         {
             InitializeComponent();
-            
+            this.setting = setting;
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            StartForm startForm = new StartForm(setting);
+            startForm.Visible = true;
+            this.Dispose();
+        }
+
+        private void goButton_Click(object sender, EventArgs e)
+        {
+            if (thisPC.Checked)
+            {
+                FormPlayVsHuman vsHuman = new FormPlayVsHuman(setting);
+                vsHuman.Visible = true;
+                this.Dispose();
+            }
+            else {
+                Console.WriteLine("Played in the network mode");
+                SocketManagement sm = new SocketManagement("192.168.173.1", 8000);
+                sm.StartAsServer();
+            }
         }
 
         

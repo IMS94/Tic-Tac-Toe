@@ -85,9 +85,10 @@ namespace Tik_tak_toe_pro
 
         private void pbVsHuman_Click(object sender, EventArgs e)
         {
-            FormPlayVsHuman vsHuman = new FormPlayVsHuman(setting);
-            vsHuman.Visible = true;
-            this.Visible = false;
+            MultiplayerForm multiplayerForm = new MultiplayerForm(setting);
+            multiplayerForm.Visible = true;
+            this.Visible=false;
+            
         }
         
 

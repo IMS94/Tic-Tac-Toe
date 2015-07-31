@@ -31,10 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MultiplayerForm));
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBoxLevels = new System.Windows.Forms.GroupBox();
-            this.levelMedium = new System.Windows.Forms.RadioButton();
+            this.overNetwork = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
-            this.levelEasy = new System.Windows.Forms.RadioButton();
+            this.thisPC = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
+            this.goButton = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.groupBoxLevels.SuspendLayout();
             this.SuspendLayout();
@@ -51,9 +52,10 @@
             // 
             // groupBoxLevels
             // 
-            this.groupBoxLevels.Controls.Add(this.levelMedium);
+            this.groupBoxLevels.Controls.Add(this.goButton);
+            this.groupBoxLevels.Controls.Add(this.overNetwork);
             this.groupBoxLevels.Controls.Add(this.label2);
-            this.groupBoxLevels.Controls.Add(this.levelEasy);
+            this.groupBoxLevels.Controls.Add(this.thisPC);
             this.groupBoxLevels.Font = new System.Drawing.Font("Segoe UI Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxLevels.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBoxLevels.Location = new System.Drawing.Point(27, 50);
@@ -63,42 +65,43 @@
             this.groupBoxLevels.TabStop = false;
             this.groupBoxLevels.Text = "Mode";
             // 
-            // levelMedium
+            // overNetwork
             // 
-            this.levelMedium.AutoSize = true;
-            this.levelMedium.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.levelMedium.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.levelMedium.Location = new System.Drawing.Point(42, 78);
-            this.levelMedium.Name = "levelMedium";
-            this.levelMedium.Size = new System.Drawing.Size(141, 29);
-            this.levelMedium.TabIndex = 2;
-            this.levelMedium.TabStop = true;
-            this.levelMedium.Text = "Over Network";
-            this.levelMedium.UseVisualStyleBackColor = true;
+            this.overNetwork.AutoSize = true;
+            this.overNetwork.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.overNetwork.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.overNetwork.Location = new System.Drawing.Point(42, 78);
+            this.overNetwork.Name = "overNetwork";
+            this.overNetwork.Size = new System.Drawing.Size(141, 29);
+            this.overNetwork.TabIndex = 2;
+            this.overNetwork.TabStop = true;
+            this.overNetwork.Text = "Over Network";
+            this.overNetwork.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Location = new System.Drawing.Point(181, 146);
+            this.label2.Location = new System.Drawing.Point(6, 146);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 25);
             this.label2.TabIndex = 4;
             this.label2.Text = "<< Back";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // levelEasy
+            // thisPC
             // 
-            this.levelEasy.AutoSize = true;
-            this.levelEasy.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.levelEasy.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.levelEasy.Location = new System.Drawing.Point(42, 38);
-            this.levelEasy.Name = "levelEasy";
-            this.levelEasy.Size = new System.Drawing.Size(88, 29);
-            this.levelEasy.TabIndex = 1;
-            this.levelEasy.TabStop = true;
-            this.levelEasy.Text = "This PC";
-            this.levelEasy.UseVisualStyleBackColor = true;
+            this.thisPC.AutoSize = true;
+            this.thisPC.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.thisPC.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.thisPC.Location = new System.Drawing.Point(42, 38);
+            this.thisPC.Name = "thisPC";
+            this.thisPC.Size = new System.Drawing.Size(88, 29);
+            this.thisPC.TabIndex = 1;
+            this.thisPC.TabStop = true;
+            this.thisPC.Text = "This PC";
+            this.thisPC.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -110,6 +113,18 @@
             this.label1.Size = new System.Drawing.Size(154, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Multiplayer Mode";
+            // 
+            // goButton
+            // 
+            this.goButton.AutoSize = true;
+            this.goButton.Font = new System.Drawing.Font("Segoe UI Light", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.goButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.goButton.Location = new System.Drawing.Point(181, 146);
+            this.goButton.Name = "goButton";
+            this.goButton.Size = new System.Drawing.Size(65, 25);
+            this.goButton.TabIndex = 5;
+            this.goButton.Text = "Go >>";
+            this.goButton.Click += new System.EventHandler(this.goButton_Click);
             // 
             // MultiplayerForm
             // 
@@ -136,10 +151,11 @@
 
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RadioButton levelMedium;
-        private System.Windows.Forms.RadioButton levelEasy;
+        private System.Windows.Forms.RadioButton overNetwork;
+        private System.Windows.Forms.RadioButton thisPC;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBoxLevels;
+        private System.Windows.Forms.Label goButton;
     }
 }
 

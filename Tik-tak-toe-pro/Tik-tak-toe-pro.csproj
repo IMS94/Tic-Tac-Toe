@@ -82,6 +82,12 @@
     <Compile Include="Process\SocketManagement.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="MultiplayerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MultiplayerForm.Designer.cs">
+      <DependentUpon>MultiplayerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SettingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPlayVsComputer.resx">
       <DependentUpon>FormPlayVsComputer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MultiplayerForm.resx">
+      <DependentUpon>MultiplayerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SettingForm.resx">
       <DependentUpon>SettingForm.cs</DependentUpon>
