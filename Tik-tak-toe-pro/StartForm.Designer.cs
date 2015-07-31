@@ -127,7 +127,9 @@
             this.ControlBox = false;
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Location = new System.Drawing.Point(275, 100);
             this.Name = "StartForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbVsExit)).EndInit();

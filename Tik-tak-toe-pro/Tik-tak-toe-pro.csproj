@@ -56,13 +56,14 @@
     <Compile Include="FormPlayVsComputer.Designer.cs">
       <DependentUpon>FormPlayVsComputer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Process\LeaderBoard.cs" />
     <Compile Include="PlayModes\Human.cs" />
     <Compile Include="PlayModes\Medium.cs" />
     <Compile Include="PlayModes\PlayModel.cs" />
     <Compile Include="PlayModes\Easy.cs" />
     <Compile Include="Process\NormalPlay.cs" />
     <Compile Include="PlayModes\Hard.cs" />
-    <Compile Include="Setting.cs" />
+    <Compile Include="Process\Setting.cs" />
     <Compile Include="SettingForm.cs">
       <SubType>Form</SubType>
     </Compile>
