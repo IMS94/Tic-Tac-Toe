@@ -92,10 +92,5 @@ namespace Tik_tak_toe_pro
             return grid;
         }
 
-         
-        static void Main() {
-            SocketManagement socket = new SocketManagement("193.1.1.1",8000);
-            socket.StartAsServer();
-        }
     }
 }
