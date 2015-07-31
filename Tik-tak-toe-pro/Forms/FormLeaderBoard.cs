@@ -25,6 +25,7 @@ namespace Tik_tak_toe_pro
             lbscore.BackColor = Color.Black;
             btadd.BackColor = Color.Green;
             pbeasy.BackColor = Color.Orange;
+            lblEasy.ForeColor = Color.Orange;
             pbhard.BackColor = Color.Transparent;
             pbmedium.BackColor = Color.Transparent;
             lblscore.Text = this.leaderBoard.getScore(setting.current[1], setting.current[2]).ToString();
@@ -42,6 +43,9 @@ namespace Tik_tak_toe_pro
             pbeasy.BackColor = Color.Orange;
             pbhard.BackColor = Color.Transparent;
             pbmedium.BackColor = Color.Transparent;
+            lblEasy.ForeColor = Color.Orange;
+            lblMedium.ForeColor = Color.White;
+            lbHard.ForeColor = Color.White;
             this.addTolist(leaderBoard.easyBoardNameRefs, leaderBoard.easyBoardScore);
         }
 
@@ -50,6 +54,9 @@ namespace Tik_tak_toe_pro
             pbeasy.BackColor = Color.Transparent;
             pbhard.BackColor = Color.Transparent;
             pbmedium.BackColor = Color.Orange;
+            lblEasy.ForeColor = Color.White;
+            lblMedium.ForeColor = Color.Orange;
+            lbHard.ForeColor = Color.White;
             this.addTolist(leaderBoard.mediumBoardNameRefs, leaderBoard.mediumBoardScore);
         }
 
@@ -58,6 +65,10 @@ namespace Tik_tak_toe_pro
             pbeasy.BackColor = Color.Transparent;
             pbhard.BackColor = Color.Orange;
             pbmedium.BackColor = Color.Transparent;
+            lblEasy.ForeColor = Color.White;
+            lblMedium.ForeColor = Color.White;
+            lbHard.ForeColor = Color.Orange;
+
             this.addTolist(leaderBoard.hardBoardNameRefs, leaderBoard.hardBoardScore);
         }
 
