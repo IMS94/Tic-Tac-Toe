@@ -33,12 +33,15 @@ namespace Tik_tak_toe_pro
             {
                 FormPlayVsHuman vsHuman = new FormPlayVsHuman(setting);
                 vsHuman.Visible = true;
-                this.Dispose();
+                this.Visible=false;
             }
             else {
-                Console.WriteLine("Played in the network mode");
-                SocketManagement sm = new SocketManagement("192.168.173.1", 8000);
-                sm.StartAsServer();
+                
+                //SocketManagement sm = new SocketManagement("192.168.173.1", 8000);
+                //sm.startAsClient();
+                IPAddressForm ipForm = new IPAddressForm(setting);
+                ipForm.Visible = true;
+                this.Visible = false;
             }
         }
 

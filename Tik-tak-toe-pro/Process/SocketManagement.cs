@@ -29,7 +29,7 @@ namespace Tik_tak_toe_pro
         /*
          * Method to start a server
          */
-        public bool StartAsServer(){
+        public bool startAsServer(){
             try
             {
                 tcpListener = new TcpListener(ip, port);
@@ -48,11 +48,16 @@ namespace Tik_tak_toe_pro
          * Method to start as client
          */
         public bool startAsClient() {
-            client = new TcpClient();
-            client.Connect(ip, port);
-
-            stream = client.GetStream();
-
+            try
+            {
+                client = new TcpClient();
+                client.Connect(ip, port);
+                stream = client.GetStream();
+            }
+            catch (Exception ex) {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+                return false; 
+            }
             return true;
         }
 
@@ -62,8 +67,8 @@ namespace Tik_tak_toe_pro
             try
             {
                 string data = "";
-                for (int y = 0; y < 3; y++)
-                    for (int x = 0; x < 3; x++)
+                for (int y = 0; y < grid.Length; y++)
+                    for (int x = 0; x < grid[y].Length; x++)
                         data += grid[y][x];
 
                 byte[] dataBytes = new byte[255];
@@ -84,9 +89,9 @@ namespace Tik_tak_toe_pro
             char[] charOfTemp = temp.ToCharArray();
             
             int[][] grid = { new int[] { 0, 0, 0 }, new int[] { 0, 0, 0 }, new int[] { 0, 0, 0 } };
-            
-            for (int y = 0; y < 3; y++)
-                for (int x = 0; x < 3; x++)
+
+            for (int y = 0; y < grid.Length; y++)
+                for (int x = 0; x < grid[y].Length; x++)
                     grid[y][x] = Int32.Parse("" + charOfTemp[(y * 3) + x]);
             
             return grid;

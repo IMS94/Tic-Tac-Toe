@@ -71,6 +71,12 @@
     <Compile Include="FormPlayVsComputer.Designer.cs">
       <DependentUpon>FormPlayVsComputer.cs</DependentUpon>
     </Compile>
+    <Compile Include="IPAddressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IPAddressForm.Designer.cs">
+      <DependentUpon>IPAddressForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Process\LeaderBoard.cs" />
     <Compile Include="PlayModes\Human.cs" />
     <Compile Include="PlayModes\Medium.cs" />
@@ -107,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPlayVsComputer.resx">
       <DependentUpon>FormPlayVsComputer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IPAddressForm.resx">
+      <DependentUpon>IPAddressForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MultiplayerForm.resx">
       <DependentUpon>MultiplayerForm.cs</DependentUpon>
