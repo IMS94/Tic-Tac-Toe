@@ -65,8 +65,15 @@ namespace Tik_tak_toe_pro
         { 
             lbname.Items.Clear();
             lbscore.Items.Clear();
-            List<string[]> names = boardNameRefs;
-            for (int i = scores.Count-1; i >=0 ; i--) 
+
+            List<string[]> names=new List<string[]>();
+
+            for (int i = 0; i < boardNameRefs.Count; i++)
+            {
+                names.Add(boardNameRefs[i]);
+            }
+
+            for (int i = scores.Count - 1; i >= 0; i--)
             {
                 lbscore.Items.Add(scores[i]);
                 for (int j = 0; j < names.Count; j++)
@@ -123,6 +130,11 @@ namespace Tik_tak_toe_pro
                 pbmedium.BackColor = Color.Orange;
                 this.addTolist(leaderBoard.mediumBoardNameRefs, leaderBoard.mediumBoardScore);
             }
+            setting.current[0] = 0;
+            setting.current[1] = 0;
+            setting.current[2] = 0;
+            btadd.Enabled = false;
+            
         }
         
         

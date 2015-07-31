@@ -187,46 +187,55 @@ namespace Tik_tak_toe_pro
         private void lbl02_Click(object sender, EventArgs e)
         {
             labelClick(0, 2);
+            lbl02.Enabled = false;
         }
 
         private void lbl12_Click(object sender, EventArgs e)
         {
             labelClick(1, 2);
+            lbl12.Enabled = false;
         }
 
         private void lbl22_Click(object sender, EventArgs e)
         {
             labelClick(2, 2);
+            lbl22.Enabled = false;
         }
 
         private void lbl01_Click(object sender, EventArgs e)
         {
             labelClick(0, 1);
+            lbl01.Enabled = false;
         }
 
         private void lbl11_Click(object sender, EventArgs e)
         {
             labelClick(1, 1);
+            lbl11.Enabled = false;
         }
 
         private void lbl21_Click(object sender, EventArgs e)
         {
             labelClick(2, 1);
+            lbl21.Enabled = false;
         }
 
         private void lbl00_Click(object sender, EventArgs e)
         {
             labelClick(0, 0);
+            lbl00.Enabled = false;
         }
 
         private void lbl10_Click(object sender, EventArgs e)
         {
             labelClick(1, 0);
+            lbl10.Enabled = false;
         }
 
         private void lbl20_Click(object sender, EventArgs e)
         {
             labelClick(2, 0);
+            lbl20.Enabled = false;
         }
 
 
