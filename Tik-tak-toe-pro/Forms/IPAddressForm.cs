@@ -60,8 +60,6 @@ namespace Tik_tak_toe_pro
 
             if (hasStarted) {
                 int[][]data=sm.getBoard();
-                Console.WriteLine(data);
-                
                 
                 for (int y = 0; y < data.Length; y++)
                 {
@@ -95,7 +93,7 @@ namespace Tik_tak_toe_pro
                 for (int y = 0; y < grid.Length; y++)
                     for (int x = 0; x < 3; x++)
                         grid[y][x] = 1;
-
+                while(true)
                 sm.sendBoard(grid);
             }
         }
