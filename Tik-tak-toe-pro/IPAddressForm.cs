@@ -54,9 +54,14 @@ namespace Tik_tak_toe_pro
             }
 
             //start host.
+            Console.WriteLine("Connected!");
             SocketManagement sm = new SocketManagement(ipText.Text,8000);
-            sm.startAsClient();
+            bool hasStarted = sm.startAsClient();
 
+            if (hasStarted) {
+                int[][]data=sm.getBoard();
+                Console.WriteLine(data);
+            }
         }
 
         private void hostButton_Click(object sender, EventArgs e)
@@ -72,10 +77,18 @@ namespace Tik_tak_toe_pro
                 System.Windows.Forms.MessageBox.Show("Please enter a valid name !");
                 return;
             }
-
+            Console.WriteLine("Hosted!");
             SocketManagement sm = new SocketManagement(ipText.Text, 8000);
-            sm.startAsServer();
+            bool hasStarted = sm.startAsServer();
+            
+            if(hasStarted){
+                int[][] grid=new int[3][3];
+                for (int y = 0; y < grid.Length; y++)
+                    for (int x = 0; x < grid[y].Length; x++)
+                        grid[y][x] = 1;
 
+                sm.sendBoard(grid);
+            }
         }
 
        
