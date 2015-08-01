@@ -102,27 +102,31 @@ namespace Tik_tak_toe_pro
 
         public int[,] getBoard()
         {
-
-            byte[] bytes = new byte[255];
-            stream.Read(bytes, 0, bytes.Length);
-            string temp = new ASCIIEncoding().GetString(bytes);
-            char[] charOfTemp = temp.ToCharArray();
-            
             int[,] grid = { { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 } };
-
-            for (int y = 0; y < 3; y++)
+            try
             {
-                for (int x = 0; x < 3; x++)
+                byte[] bytes = new byte[255];
+                stream.Read(bytes, 0, bytes.Length);
+                string temp = new ASCIIEncoding().GetString(bytes);
+                char[] charOfTemp = temp.ToCharArray();
+
+                for (int y = 0; y < 3; y++)
                 {
-                    /*
-                     * Retrieve the grid with -1 replaced for 2
-                     */
-                    grid[y, x] = Int32.Parse("" + charOfTemp[(y * 3) + x]);
-                    if (grid[y, x]==2)
+                    for (int x = 0; x < 3; x++)
                     {
-                        grid[y, x] = -1;
+                        /*
+                         * Retrieve the grid with -1 replaced for 2
+                         */
+                        grid[y, x] = Int32.Parse("" + charOfTemp[(y * 3) + x]);
+                        if (grid[y, x] == 2)
+                        {
+                            grid[y, x] = -1;
+                        }
                     }
                 }
+            }
+            catch (Exception ex) {
+                System.Windows.Forms.MessageBox.Show("Error reading from the Network Stream !");
             }
             return grid;
         }
