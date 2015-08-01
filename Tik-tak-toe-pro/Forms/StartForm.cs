@@ -66,6 +66,7 @@ namespace Tik_tak_toe_pro
 
         private void pbVsExit_Click(object sender, EventArgs e)
         {
+            this.Close();
             Application.Exit();
         }
 

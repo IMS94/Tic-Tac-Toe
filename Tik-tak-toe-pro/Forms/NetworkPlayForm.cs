@@ -39,9 +39,9 @@ namespace Tik_tak_toe_pro
 
             setting = settingE;
             
-            lbluser2.ForeColor = Color.DimGray;
-            lbluser1.ForeColor = Color.White;
             setupNames();   //set the names of the users.
+            refreshVal();
+
             if(!myTurn){
                 new Thread(() =>
                 {
@@ -66,10 +66,11 @@ namespace Tik_tak_toe_pro
                     socketManagement.sendMessage(me);
                     while (true) {
                         String name = socketManagement.getMessage();
+                        name=name.Replace("\0", String.Empty);
                         if(Regex.Matches(name,"[a-zA-Z]").Count>2){
                             //Then the name arrived.
                             opponent = name;
-                            lbluser2.Text = opponent + " - O";
+                            lbluser2.Text = (opponent + " - O");
                             break;
                         }
                     }
@@ -82,11 +83,12 @@ namespace Tik_tak_toe_pro
                     while (true)
                     {
                         String name = socketManagement.getMessage();
+                        name=name.Replace("\0", String.Empty);
                         if (Regex.Matches(name, "[a-zA-Z]").Count > 2)
                         {
                             //Then the name arrived.
                             opponent = name;
-                            lbluser2.Text = opponent + " - X";
+                            lbluser2.Text = name + " - X";
                             socketManagement.sendMessage(me);
                             break;
                         }
