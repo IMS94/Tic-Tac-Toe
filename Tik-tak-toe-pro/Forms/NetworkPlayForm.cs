@@ -62,13 +62,14 @@ namespace Tik_tak_toe_pro
                 {
                     myTurn = true;
                     playModel = new Human(1, -1);
-
+                    lbluser1.Text = me + " - X";
                     socketManagement.sendMessage(me);
                     while (true) {
                         String name = socketManagement.getMessage();
                         if(Regex.Matches(name,"[a-zA-Z]").Count>2){
                             //Then the name arrived.
                             opponent = name;
+                            lbluser2.Text = opponent + " - O";
                             break;
                         }
                     }
@@ -77,6 +78,7 @@ namespace Tik_tak_toe_pro
                 else if (socketManagement.getConnectionType() == SocketManagement.CLIENT) {
                     myTurn = false;
                     playModel = new Human(-1, 1);
+                    lbluser1.Text = me + " - O";
                     while (true)
                     {
                         String name = socketManagement.getMessage();
@@ -84,6 +86,7 @@ namespace Tik_tak_toe_pro
                         {
                             //Then the name arrived.
                             opponent = name;
+                            lbluser2.Text = opponent + " - X";
                             socketManagement.sendMessage(me);
                             break;
                         }
@@ -91,7 +94,7 @@ namespace Tik_tak_toe_pro
                     break;
                 }
             }
-            lbluser2.Text = opponent;
+            //lbluser2.Text = opponent;
             
         }
 
@@ -113,6 +116,18 @@ namespace Tik_tak_toe_pro
                 if (grid[2, 0] == 0) { lbl20.Text = ""; } else if (grid[2, 0] == 1) { lbl20.Text = "X"; } else if (grid[2, 0] == -1) { lbl20.Text = "O"; }
                 if (grid[2, 1] == 0) { lbl21.Text = ""; } else if (grid[2, 1] == 1) { lbl21.Text = "X"; } else if (grid[2, 1] == -1) { lbl21.Text = "O"; }
                 if (grid[2, 2] == 0) { lbl22.Text = ""; } else if (grid[2, 2] == 1) { lbl22.Text = "X"; } else if (grid[2, 2] == -1) { lbl22.Text = "O"; }
+
+                if (myTurn)
+                {
+                    lbluser2.ForeColor = Color.DimGray;
+                    lbluser1.ForeColor = Color.White;
+                }
+                else {
+                    lbluser2.ForeColor = Color.White;
+                    lbluser1.ForeColor = Color.DimGray;
+                }
+
+                this.gameDecision(NormalPlay.checkStatus(grid, playModel.user1Mark), false);
             }
         }
 
@@ -345,8 +360,8 @@ namespace Tik_tak_toe_pro
             
             socketManagement.sendBoard(grid);
             grid = socketManagement.getBoard();
-            refreshVal();
             myTurn = true;
+            refreshVal();
         }
 
 
@@ -355,18 +370,14 @@ namespace Tik_tak_toe_pro
 
             if (myTurn)
             {
+                myTurn = false;
                 playModel.userPlay(X, Y, grid, playModel.user1Mark);
                 this.gameDecision(NormalPlay.checkStatus(grid, playModel.user1Mark), false);
                 
                 refreshVal();
-                lbluser2.ForeColor = Color.White;
-                lbluser1.ForeColor = Color.DimGray;
-               
-                myTurn = false;
-                Thread listener = new Thread(new ThreadStart(
                 
+                Thread listener = new Thread(new ThreadStart(
                     ListenChanges
-                    
                 ));
                 listener.Start();
                 
