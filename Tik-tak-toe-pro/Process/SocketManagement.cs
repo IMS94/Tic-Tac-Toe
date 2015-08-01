@@ -75,8 +75,21 @@ namespace Tik_tak_toe_pro
             {
                 string data = "";
                 for (int y = 0; y < 3; y++)
+                {
                     for (int x = 0; x < 3; x++)
-                        data += grid[y,x];
+                    {
+                        /*
+                         * Assign 2 for (-1)
+                         */
+                        if (grid[y, x] == -1)
+                        {
+                            data += 2;
+                        }
+                        else {
+                            data += grid[y, x];
+                        }
+                    }
+                }
 
                 byte[] dataBytes = new byte[255];
                 dataBytes = new ASCIIEncoding().GetBytes(data);
@@ -98,9 +111,19 @@ namespace Tik_tak_toe_pro
             int[,] grid = { { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 } };
 
             for (int y = 0; y < 3; y++)
+            {
                 for (int x = 0; x < 3; x++)
-                    grid[y,x] = Int32.Parse("" + charOfTemp[(y * 3) + x]);
-            
+                {
+                    /*
+                     * Retrieve the grid with -1 replaced for 2
+                     */
+                    grid[y, x] = Int32.Parse("" + charOfTemp[(y * 3) + x]);
+                    if (grid[y, x]==2)
+                    {
+                        grid[y, x] = -1;
+                    }
+                }
+            }
             return grid;
         }
 
