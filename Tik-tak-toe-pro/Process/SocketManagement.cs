@@ -74,7 +74,7 @@ namespace Tik_tak_toe_pro
             try
             {
                 string data = "";
-                for (int y = 0; y < grid.Length; y++)
+                for (int y = 0; y < 3; y++)
                     for (int x = 0; x < 3; x++)
                         data += grid[y,x];
 
