@@ -37,7 +37,6 @@ namespace Tik_tak_toe_pro
             }
 
             setting = settingE;
-            playModel = new Human(1, -1);
             
             lbluser2.ForeColor = Color.DimGray;
             lbluser1.ForeColor = Color.White;
@@ -45,6 +44,7 @@ namespace Tik_tak_toe_pro
             if(!myTurn){
                 grid = socketManagement.getBoard();
                 refreshVal();
+                myTurn = true;
             }
         }
 
@@ -54,6 +54,8 @@ namespace Tik_tak_toe_pro
                 if (socketManagement.getConnectionType() == SocketManagement.SERVER)
                 {
                     myTurn = true;
+                    playModel = new Human(1, -1);
+
                     socketManagement.sendMessage(me);
                     while (true) {
                         String name = socketManagement.getMessage();
@@ -67,6 +69,7 @@ namespace Tik_tak_toe_pro
                 }
                 else if (socketManagement.getConnectionType() == SocketManagement.CLIENT) {
                     myTurn = false;
+                    playModel = new Human(-1, 1);
                     while (true)
                     {
                         String name = socketManagement.getMessage();
