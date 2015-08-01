@@ -88,7 +88,7 @@
             // 
             this.pbhard.Location = new System.Drawing.Point(173, 50);
             this.pbhard.Name = "pbhard";
-            this.pbhard.Size = new System.Drawing.Size(57, 10);
+            this.pbhard.Size = new System.Drawing.Size(57, 5);
             this.pbhard.TabIndex = 14;
             this.pbhard.TabStop = false;
             // 
@@ -96,7 +96,7 @@
             // 
             this.pbmedium.Location = new System.Drawing.Point(100, 50);
             this.pbmedium.Name = "pbmedium";
-            this.pbmedium.Size = new System.Drawing.Size(57, 10);
+            this.pbmedium.Size = new System.Drawing.Size(57, 5);
             this.pbmedium.TabIndex = 13;
             this.pbmedium.TabStop = false;
             // 
@@ -104,7 +104,7 @@
             // 
             this.pbeasy.Location = new System.Drawing.Point(28, 50);
             this.pbeasy.Name = "pbeasy";
-            this.pbeasy.Size = new System.Drawing.Size(57, 10);
+            this.pbeasy.Size = new System.Drawing.Size(57, 5);
             this.pbeasy.TabIndex = 12;
             this.pbeasy.TabStop = false;
             // 
@@ -112,7 +112,7 @@
             // 
             this.lbHard.AutoSize = true;
             this.lbHard.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbHard.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lbHard.ForeColor = System.Drawing.Color.White;
             this.lbHard.Location = new System.Drawing.Point(171, 30);
             this.lbHard.Name = "lbHard";
             this.lbHard.Size = new System.Drawing.Size(60, 34);
@@ -124,7 +124,7 @@
             // 
             this.lblMedium.AutoSize = true;
             this.lblMedium.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMedium.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblMedium.ForeColor = System.Drawing.Color.White;
             this.lblMedium.Location = new System.Drawing.Point(97, 30);
             this.lblMedium.Name = "lblMedium";
             this.lblMedium.Size = new System.Drawing.Size(64, 34);
@@ -136,8 +136,8 @@
             // 
             this.lblEasy.AutoSize = true;
             this.lblEasy.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEasy.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblEasy.Location = new System.Drawing.Point(26, 32);
+            this.lblEasy.ForeColor = System.Drawing.Color.White;
+            this.lblEasy.Location = new System.Drawing.Point(25, 30);
             this.lblEasy.Name = "lblEasy";
             this.lblEasy.Size = new System.Drawing.Size(48, 34);
             this.lblEasy.TabIndex = 9;

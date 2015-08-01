@@ -215,6 +215,7 @@ namespace Tik_tak_toe_pro
             playModel.pcPlay(grid, playModel.pcMark);
             this.gameDecision(NormalPlay.checkStatus(grid, playModel.pcMark), true);
             this.refreshVal();
+            lbl02.Enabled = false;
             
         }
 
@@ -227,6 +228,7 @@ namespace Tik_tak_toe_pro
             playModel.pcPlay(grid, playModel.pcMark);
             this.gameDecision(NormalPlay.checkStatus(grid, playModel.pcMark), true);
             this.refreshVal();
+            lbl12.Enabled = false;
         
         }
 
@@ -239,6 +241,7 @@ namespace Tik_tak_toe_pro
             playModel.pcPlay(grid, playModel.pcMark);
             this.gameDecision(NormalPlay.checkStatus(grid, playModel.pcMark), true);
             this.refreshVal();
+            lbl22.Enabled = false;
         
         }
 
@@ -251,7 +254,7 @@ namespace Tik_tak_toe_pro
             playModel.pcPlay(grid, playModel.pcMark);
             this.gameDecision(NormalPlay.checkStatus(grid, playModel.pcMark), true);
             this.refreshVal();
-        
+            lbl01.Enabled = false;
         }
 
         private void lbl11_Click(object sender, EventArgs e)
@@ -263,6 +266,7 @@ namespace Tik_tak_toe_pro
             playModel.pcPlay(grid, playModel.pcMark);
             this.gameDecision(NormalPlay.checkStatus(grid, playModel.pcMark), true);
             this.refreshVal();
+            lbl11.Enabled = false;
         
         }
 
@@ -275,7 +279,7 @@ namespace Tik_tak_toe_pro
             playModel.pcPlay(grid, playModel.pcMark);
             this.gameDecision(NormalPlay.checkStatus(grid, playModel.pcMark), true);
             this.refreshVal();
-        
+            lbl21.Enabled = false;
         }
 
         private void lbl00_Click(object sender, EventArgs e)
@@ -287,7 +291,7 @@ namespace Tik_tak_toe_pro
             playModel.pcPlay(grid, playModel.pcMark);
             this.gameDecision(NormalPlay.checkStatus(grid, playModel.pcMark), true);
             this.refreshVal();
-        
+            lbl00.Enabled = false;
         }
 
         private void lbl10_Click(object sender, EventArgs e)
@@ -299,7 +303,7 @@ namespace Tik_tak_toe_pro
             playModel.pcPlay(grid, playModel.pcMark);
             this.gameDecision(NormalPlay.checkStatus(grid, playModel.pcMark), true);
             this.refreshVal();
-        
+            lbl10.Enabled = false;
         }
 
         private void lbl20_Click(object sender, EventArgs e)
@@ -311,7 +315,7 @@ namespace Tik_tak_toe_pro
             playModel.pcPlay(grid, playModel.pcMark);
             this.gameDecision(NormalPlay.checkStatus(grid, playModel.pcMark), true);
             this.refreshVal();
-        
+            lbl20.Enabled = false;
         }
 
         //false=user  true =PC
@@ -351,7 +355,7 @@ namespace Tik_tak_toe_pro
 
             if (setting.current[0] == 10)
             {
-
+                Thread.Sleep(1000);
                 FormLeaderBoard formLeaderBoard = new FormLeaderBoard(setting.leaderBoard, setting);
                 formLeaderBoard.Visible = true;
                 
