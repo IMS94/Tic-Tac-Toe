@@ -42,6 +42,10 @@ namespace Tik_tak_toe_pro
             lbluser2.ForeColor = Color.DimGray;
             lbluser1.ForeColor = Color.White;
             setupNames();   //set the names of the users.
+            if(!myTurn){
+                grid = socketManagement.getBoard();
+                refreshVal();
+            }
         }
 
 
