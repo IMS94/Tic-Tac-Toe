@@ -45,6 +45,7 @@ namespace Tik_tak_toe_pro
             if(!myTurn){
                 grid = socketManagement.getBoard();
                 refreshVal();
+                myTurn = true;
             }
         }
 

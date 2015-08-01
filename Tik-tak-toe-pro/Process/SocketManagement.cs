@@ -97,7 +97,7 @@ namespace Tik_tak_toe_pro
             
             int[,] grid = { { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 } };
 
-            for (int y = 0; y < grid.Length; y++)
+            for (int y = 0; y < 3; y++)
                 for (int x = 0; x < 3; x++)
                     grid[y,x] = Int32.Parse("" + charOfTemp[(y * 3) + x]);
             
