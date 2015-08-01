@@ -15,7 +15,8 @@ namespace Tik_tak_toe_pro
         private TcpListener tcpListener;
         private TcpClient client;
         private NetworkStream stream;
-
+        public static int CLIENT = 0, SERVER = 1;
+        private int type = -1;
 
         /*  
          * Constructor to open a socket if wanted.
@@ -41,6 +42,7 @@ namespace Tik_tak_toe_pro
                 System.Windows.Forms.MessageBox.Show(ex.Message); 
                 return false; 
             }
+            type = SERVER;
             return true;
         }
 
@@ -58,18 +60,23 @@ namespace Tik_tak_toe_pro
                 System.Windows.Forms.MessageBox.Show(ex.Message);
                 return false; 
             }
+            type = CLIENT;
             return true;
         }
 
 
-        public bool sendBoard(int[][] grid)
+        public int getConnectionType(){
+            return type;
+        }
+
+        public bool sendBoard(int[,] grid)
         {
             try
             {
                 string data = "";
                 for (int y = 0; y < grid.Length; y++)
-                    for (int x = 0; x < grid[y].Length; x++)
-                        data += grid[y][x];
+                    for (int x = 0; x < 3; x++)
+                        data += grid[y,x];
 
                 byte[] dataBytes = new byte[255];
                 dataBytes = new ASCIIEncoding().GetBytes(data);
@@ -80,7 +87,7 @@ namespace Tik_tak_toe_pro
         }
 
 
-        public int[][] getBoard()
+        public int[,] getBoard()
         {
 
             byte[] bytes = new byte[255];
@@ -88,13 +95,30 @@ namespace Tik_tak_toe_pro
             string temp = new ASCIIEncoding().GetString(bytes);
             char[] charOfTemp = temp.ToCharArray();
             
-            int[][] grid = { new int[] { 0, 0, 0 }, new int[] { 0, 0, 0 }, new int[] { 0, 0, 0 } };
+            int[,] grid = { { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 } };
 
             for (int y = 0; y < grid.Length; y++)
-                for (int x = 0; x < grid[y].Length; x++)
-                    grid[y][x] = Int32.Parse("" + charOfTemp[(y * 3) + x]);
+                for (int x = 0; x < 3; x++)
+                    grid[y,x] = Int32.Parse("" + charOfTemp[(y * 3) + x]);
             
             return grid;
+        }
+
+        public bool sendMessage(String msg) {
+            try{
+                byte[] data=new byte[1024];
+                data = new ASCIIEncoding().GetBytes(msg);
+                stream.Write(data,0,data.Length);
+            }
+            catch (Exception ex) { System.Windows.Forms.MessageBox.Show(ex.Message); return false; }
+            return true;
+        }
+
+        public String getMessage() {
+            byte[] bytes = new byte[255];
+            stream.Read(bytes, 0, bytes.Length);
+            string message = new ASCIIEncoding().GetString(bytes);
+            return message;
         }
 
     }

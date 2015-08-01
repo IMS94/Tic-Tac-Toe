@@ -71,6 +71,12 @@
     <Compile Include="Forms\FormPlayVsComputer.Designer.cs">
       <DependentUpon>FormPlayVsComputer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\NetworkPlayForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NetworkPlayForm.Designer.cs">
+      <DependentUpon>NetworkPlayForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormPlayVsHuman.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormPlayVsComputer.resx">
       <DependentUpon>FormPlayVsComputer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NetworkPlayForm.resx">
+      <DependentUpon>NetworkPlayForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormPlayVsHuman.resx">
       <DependentUpon>FormPlayVsHuman.cs</DependentUpon>

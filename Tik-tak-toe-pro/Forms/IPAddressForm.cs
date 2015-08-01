@@ -40,6 +40,9 @@ namespace Tik_tak_toe_pro
             return false;
         }
 
+        /*
+         * To connect as the client
+         */
         private void clientButton_Click(object sender, EventArgs e)
         {
             if (!verifyIPAddress(ipText.Text)) 
@@ -59,7 +62,18 @@ namespace Tik_tak_toe_pro
             bool hasStarted = sm.startAsClient();
 
             if (hasStarted) {
-                int[][]data=sm.getBoard();
+                hostButton.Enabled = false;
+                clientButton.Enabled = false;
+                /* 
+                 * Then open the playing window and assign names and signs.
+                 */
+
+                NetworkPlayForm networkForm = new NetworkPlayForm(setting,sm,nameBox.Text);
+                networkForm.Visible = true;
+                this.Visible = false;
+
+
+                /*int[][]data=sm.getBoard();
                 
                 for (int y = 0; y < data.Length; y++)
                 {
@@ -67,7 +81,7 @@ namespace Tik_tak_toe_pro
                     {
                         Console.WriteLine(data[y][x]);
                     }
-                }
+                }*/
             }
         }
 
@@ -89,12 +103,18 @@ namespace Tik_tak_toe_pro
             bool hasStarted = sm.startAsServer();
             
             if(hasStarted){
-                int[][] grid=new int[3][];
+                hostButton.Enabled = false;
+                clientButton.Enabled = false;
+                /*int[][] grid=new int[3][];
                 for (int y = 0; y < grid.Length; y++)
                     for (int x = 0; x < 3; x++)
                         grid[y][x] = 1;
                 while(true)
-                sm.sendBoard(grid);
+                sm.sendBoard(grid);*/
+
+                NetworkPlayForm networkForm = new NetworkPlayForm(setting,sm,nameBox.Text);
+                networkForm.Visible = true;
+                this.Visible = false;
             }
         }
 
