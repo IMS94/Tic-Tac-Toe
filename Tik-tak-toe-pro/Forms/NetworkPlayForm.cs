@@ -43,9 +43,15 @@ namespace Tik_tak_toe_pro
             lbluser1.ForeColor = Color.White;
             setupNames();   //set the names of the users.
             if(!myTurn){
-                grid = socketManagement.getBoard();
-                refreshVal();
-                myTurn = true;
+                new Thread(() =>
+                {
+                    refreshVal();
+                    grid = socketManagement.getBoard();
+                    refreshVal();
+                    myTurn = true;
+
+                }).Start();
+                
             }
         }
 
