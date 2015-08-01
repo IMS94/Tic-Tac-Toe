@@ -20,6 +20,7 @@ namespace Tik_tak_toe_pro
         private bool myTurn;
         private SocketManagement socketManagement;
         private String me, opponent;
+        delegate void refreshValCallback();
 
         public NetworkPlayForm(Setting settingE,SocketManagement socketManagement,String me)
         {
@@ -90,16 +91,23 @@ namespace Tik_tak_toe_pro
 
         public void refreshVal() 
         {
-        if (grid[0,0] == 0) { lbl00.Text="";}else if (grid[0,0]== 1){lbl00.Text="X";}else if(grid[0,0]==-1){lbl00.Text="O";}
-        if (grid[0,1] == 0) { lbl01.Text="";}else if (grid[0,1]== 1){lbl01.Text="X";}else if(grid[0,1]==-1){lbl01.Text="O";}
-        if (grid[0,2] == 0) { lbl02.Text="";}else if (grid[0,2]== 1){lbl02.Text="X";}else if(grid[0,2]==-1){lbl02.Text="O";}
-        if (grid[1,0] == 0) { lbl10.Text="";}else if (grid[1,0]== 1){lbl10.Text="X";}else if(grid[1,0]==-1){lbl10.Text="O";}
-        if (grid[1,1] == 0) { lbl11.Text="";}else if (grid[1,1]== 1){lbl11.Text="X";}else if(grid[1,1]==-1){lbl11.Text="O";}
-        if (grid[1,2] == 0) { lbl12.Text="";}else if (grid[1,2]== 1){lbl12.Text="X";}else if(grid[1,2]==-1){lbl12.Text="O";}
-        if (grid[2,0] == 0) { lbl20.Text="";}else if (grid[2,0]== 1){lbl20.Text="X";}else if(grid[2,0]==-1){lbl20.Text="O";}
-        if (grid[2,1] == 0) { lbl21.Text="";}else if (grid[2,1]== 1){lbl21.Text="X";}else if(grid[2,1]==-1){lbl21.Text="O";}
-        if (grid[2, 2] == 0) { lbl22.Text = ""; } else if (grid[2, 2] == 1) { lbl22.Text = "X"; } else if (grid[2, 2] == -1) { lbl22.Text = "O"; }
-        
+            if (lbl00.InvokeRequired)
+            {
+                refreshValCallback d = new refreshValCallback(refreshVal);
+                this.Invoke(d);
+            }
+            else
+            {
+                if (grid[0, 0] == 0) { lbl00.Text = ""; } else if (grid[0, 0] == 1) { lbl00.Text = "X"; } else if (grid[0, 0] == -1) { lbl00.Text = "O"; }
+                if (grid[0, 1] == 0) { lbl01.Text = ""; } else if (grid[0, 1] == 1) { lbl01.Text = "X"; } else if (grid[0, 1] == -1) { lbl01.Text = "O"; }
+                if (grid[0, 2] == 0) { lbl02.Text = ""; } else if (grid[0, 2] == 1) { lbl02.Text = "X"; } else if (grid[0, 2] == -1) { lbl02.Text = "O"; }
+                if (grid[1, 0] == 0) { lbl10.Text = ""; } else if (grid[1, 0] == 1) { lbl10.Text = "X"; } else if (grid[1, 0] == -1) { lbl10.Text = "O"; }
+                if (grid[1, 1] == 0) { lbl11.Text = ""; } else if (grid[1, 1] == 1) { lbl11.Text = "X"; } else if (grid[1, 1] == -1) { lbl11.Text = "O"; }
+                if (grid[1, 2] == 0) { lbl12.Text = ""; } else if (grid[1, 2] == 1) { lbl12.Text = "X"; } else if (grid[1, 2] == -1) { lbl12.Text = "O"; }
+                if (grid[2, 0] == 0) { lbl20.Text = ""; } else if (grid[2, 0] == 1) { lbl20.Text = "X"; } else if (grid[2, 0] == -1) { lbl20.Text = "O"; }
+                if (grid[2, 1] == 0) { lbl21.Text = ""; } else if (grid[2, 1] == 1) { lbl21.Text = "X"; } else if (grid[2, 1] == -1) { lbl21.Text = "O"; }
+                if (grid[2, 2] == 0) { lbl22.Text = ""; } else if (grid[2, 2] == 1) { lbl22.Text = "X"; } else if (grid[2, 2] == -1) { lbl22.Text = "O"; }
+            }
         }
 
         private void lblReplay_MouseEnter(object sender, EventArgs e)
@@ -297,6 +305,7 @@ namespace Tik_tak_toe_pro
             socketManagement.sendBoard(grid);
             grid = socketManagement.getBoard();
             refreshVal();
+            myTurn = true;
         }
 
 
@@ -307,12 +316,19 @@ namespace Tik_tak_toe_pro
             {
                 playModel.userPlay(X, Y, grid, playModel.user1Mark);
                 this.gameDecision(NormalPlay.checkStatus(grid, playModel.user1Mark), false);
-                this.refreshVal();
-                myTurn = false;
+                
+                refreshVal(); // runs on UI thread
                 lbluser2.ForeColor = Color.White;
                 lbluser1.ForeColor = Color.DimGray;
-                ListenChanges();
-                myTurn = true;
+               
+                myTurn = false;
+                Thread listener = new Thread(new ThreadStart(
+                
+                    ListenChanges
+                    
+                ));
+                listener.Start();
+                
             }
             
         }
@@ -347,9 +363,12 @@ namespace Tik_tak_toe_pro
 
         private void lblReplay_Click(object sender, EventArgs e)
         {
-            FormPlayVsHuman vsHumanNew = new FormPlayVsHuman(setting);
-            vsHumanNew.Visible = true;
-            this.Visible = false;
+            if(socketManagement.flushStream()){
+                NetworkPlayForm networkForm = new NetworkPlayForm(setting, socketManagement, me);
+                networkForm.Visible = true;
+                this.Visible = false;    
+            }
+            
         }
 
         

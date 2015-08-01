@@ -144,5 +144,19 @@ namespace Tik_tak_toe_pro
             return message;
         }
 
+
+
+        public bool flushStream() {
+            try
+            {
+                stream.Flush();
+            }
+            catch (Exception ex) {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+                return false;
+            }
+            return true;
+        }
+
     }
 }
