@@ -20,8 +20,9 @@ namespace Tik_tak_toe_pro
         private bool myTurn;
         private SocketManagement socketManagement;
         private String me, opponent;
-        delegate void refreshValCallback();
 
+        delegate void refreshValCallback();
+        delegate void replayCallBack();
         public NetworkPlayForm(Setting settingE,SocketManagement socketManagement,String me)
         {
             InitializeComponent();
@@ -503,9 +504,31 @@ namespace Tik_tak_toe_pro
             myTurn = false;
             grid = new int[,] { { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 } };
             refreshVal();
+
             new Thread(() => {
                 ListenChanges();
             });
+        }
+
+        private void reset() {
+            if (lbl00.InvokeRequired)
+            {
+                replayCallBack c = new replayCallBack(reset);
+                this.Invoke(c);
+            }
+            else
+            {
+                lbl00.Enabled = true;
+                lbl01.Enabled = true;
+                lbl02.Enabled = true;
+                lbl10.Enabled = true;
+                lbl12.Enabled = true;
+                lbl11.Enabled = true;
+                lbl20.Enabled = true;
+                lbl21.Enabled = true;
+                lbl22.Enabled = true;
+                panel1.Enabled = true;
+            }
         }
 
 
@@ -517,6 +540,7 @@ namespace Tik_tak_toe_pro
                 myTurn = true;
                 grid= new int[,]{ { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 } };
                 refreshVal();
+                reset();
             }
             
         }
