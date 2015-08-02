@@ -105,6 +105,11 @@ namespace Tik_tak_toe_pro
                 return;
             }
 
+            if (ipListBox.SelectedItem==null)
+            {
+                System.Windows.Forms.MessageBox.Show("Please select an IP Address !");
+                return;
+            }
             String ip=ipListBox.SelectedItem.ToString();
 
             if (!verifyIPAddress(ip))
