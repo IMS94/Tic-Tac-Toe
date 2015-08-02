@@ -11,6 +11,7 @@
     <AssemblyName>Tik-tak-toe-pro</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -23,7 +24,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -93,6 +93,7 @@
     <Compile Include="PlayModes\Medium.cs" />
     <Compile Include="PlayModes\PlayModel.cs" />
     <Compile Include="PlayModes\Easy.cs" />
+    <Compile Include="Process\DBManagement.cs" />
     <Compile Include="Process\LeaderBoard.cs" />
     <Compile Include="Process\NormalPlay.cs" />
     <Compile Include="PlayModes\Hard.cs" />
@@ -168,6 +169,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Data.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>Data.mdf</DependentUpon>
+    </Content>
     <Content Include="Images\Exit.jpg" />
     <Content Include="Images\settings.jpg" />
     <Content Include="Images\vsComputerDarkDark.jpg" />

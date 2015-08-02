@@ -108,6 +108,13 @@ namespace Tik_tak_toe_pro
 
         private void btadd_Click(object sender, EventArgs e)
         {
+            if(tbnewname.Text.Length<3){
+                return;
+            }
+
+            //add to database
+            DBManagement.addSinglePlayerScores(tbnewname.Text,setting.current[2],setting.difficultyLevel);
+
             if(setting.difficultyLevel==1){
                 leaderBoard.addNewScore(tbnewname.Text, setting.current[1], setting.current[2], leaderBoard.easyBoardNameRefs, leaderBoard.easyBoardScore);
             }
