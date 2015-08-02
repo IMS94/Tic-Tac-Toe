@@ -295,7 +295,7 @@ namespace Tik_tak_toe_pro
                 if (grid[0, 2] == 0)
                 {
                     labelClick(0, 2);
-                    lbl02.Enabled = false;
+                  //  lbl02.Enabled = false;
                 }
         }
 
@@ -308,7 +308,7 @@ namespace Tik_tak_toe_pro
             if (grid[1, 2] == 0)
             {
                 labelClick(1, 2);
-                lbl12.Enabled = false;
+                //lbl12.Enabled = false;
             }
         }
 
@@ -322,7 +322,7 @@ namespace Tik_tak_toe_pro
             {
 
                 labelClick(2, 2);
-                lbl22.Enabled = false;
+               // lbl22.Enabled = false;
             }
         }
 
@@ -336,7 +336,7 @@ namespace Tik_tak_toe_pro
             {
 
                 labelClick(0, 1);
-                lbl01.Enabled = false;
+                //lbl01.Enabled = false;
             }
         }
 
@@ -350,7 +350,7 @@ namespace Tik_tak_toe_pro
             {
 
                 labelClick(1, 1);
-                lbl11.Enabled = false;
+                //lbl11.Enabled = false;
             }
         }
 
@@ -364,7 +364,7 @@ namespace Tik_tak_toe_pro
             {
 
                 labelClick(2, 1);
-                lbl21.Enabled = false;
+                //lbl21.Enabled = false;
             }
         }
 
@@ -377,7 +377,7 @@ namespace Tik_tak_toe_pro
             if (grid[0, 0] == 0)
             {
                 labelClick(0, 0);
-                lbl00.Enabled = false;
+                //lbl00.Enabled = false;
             }
         }
 
@@ -390,7 +390,7 @@ namespace Tik_tak_toe_pro
             if (grid[1, 0] == 0)
             {
                 labelClick(1, 0);
-                lbl10.Enabled = false;
+                //lbl10.Enabled = false;
             }
         }
 
@@ -403,7 +403,7 @@ namespace Tik_tak_toe_pro
             if (grid[2, 0] == 0)
             {
                 labelClick(2, 0);
-                lbl20.Enabled = false;
+             //   lbl20.Enabled = false;
             }
         }
 
