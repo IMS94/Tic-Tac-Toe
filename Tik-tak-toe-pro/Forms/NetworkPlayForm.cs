@@ -45,6 +45,7 @@ namespace Tik_tak_toe_pro
             myTurn = true;
             setupNames();   //set the names of the users.
             refreshVal();
+            lblReplay.Visible = false;
 
             if(!myTurn){
                 threadMain = new Thread(() =>
@@ -285,6 +286,7 @@ namespace Tik_tak_toe_pro
 
         private void lblMenu_Click(object sender, EventArgs e)
         {
+            socketManagement.closeSocket();
             StartForm st = new StartForm(setting);
             st.Visible = true;
             this.Dispose();
@@ -413,25 +415,30 @@ namespace Tik_tak_toe_pro
         }
 
 
-        private void ListenChanges() { 
-            
-            socketManagement.sendBoard(grid);
-            //grid = socketManagement.getBoard();
-            String message = socketManagement.getMessage();
-            message = message.Replace("\0", String.Empty);
-            if (String.Compare(message, "-1") == 0)
+        private void ListenChanges() {
+            try
             {
-                //then replay
-                replay();
-                return;
-            }
-            else
-            {
-                grid = getBoard(message);
-            }
+                socketManagement.sendBoard(grid);
+                //grid = socketManagement.getBoard();
+                String message = socketManagement.getMessage();
+                message = message.Replace("\0", String.Empty);
+                if (String.Compare(message, "-1") == 0)
+                {
+                    //then replay
+                    replay();
+                    return;
+                }
+                else
+                {
+                    grid = getBoard(message);
+                }
 
-            myTurn = true;
-            refreshVal();
+                myTurn = true;
+                refreshVal();
+            }
+            catch(Exception ex){
+                
+            }
         }
 
 

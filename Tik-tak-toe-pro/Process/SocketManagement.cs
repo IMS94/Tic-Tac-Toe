@@ -169,5 +169,19 @@ namespace Tik_tak_toe_pro
             return true;
         }
 
+
+        public bool closeSocket() {
+            try
+            {
+                client.Close();
+                if(tcpListener!=null){
+                    tcpListener.Stop();
+                }
+                return true;
+            }
+            catch (Exception ex) {
+                return false;
+            }
+        }
     }
 }
