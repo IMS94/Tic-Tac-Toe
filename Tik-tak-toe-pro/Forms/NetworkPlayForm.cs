@@ -20,6 +20,8 @@ namespace Tik_tak_toe_pro
         private bool myTurn;
         private SocketManagement socketManagement;
         private String me, opponent;
+        Thread threadMain;
+
 
         delegate void refreshValCallback();
         delegate void replayCallBack();
@@ -39,12 +41,13 @@ namespace Tik_tak_toe_pro
             }
 
             setting = settingE;
-            
+
+            if (myTurn) { myTurn = false; } else if (myTurn == false) { myTurn = true; } else { myTurn = true; }
             setupNames();   //set the names of the users.
             refreshVal();
 
             if(!myTurn){
-                new Thread(() =>
+                threadMain = new Thread(() =>
                 {
                     refreshVal();
                     //grid = socketManagement.getBoard();
@@ -56,13 +59,15 @@ namespace Tik_tak_toe_pro
                         replay();
                         return;
                     }
-                    else {
+                    else
+                    {
                         grid = getBoard(message);
                     }
                     myTurn = true;
                     refreshVal();
-                    
-                }).Start();
+
+                });
+                threadMain.Start();
                 
             }
         }
@@ -72,7 +77,7 @@ namespace Tik_tak_toe_pro
             while(true){
                 if (socketManagement.getConnectionType() == SocketManagement.SERVER)
                 {
-                    myTurn = true;
+                 //   myTurn = true;
                     playModel = new Human(1, -1);
                     lbluser1.Text = me + " - X";
                     socketManagement.sendMessage(me);
@@ -89,7 +94,7 @@ namespace Tik_tak_toe_pro
                     break;
                 }
                 else if (socketManagement.getConnectionType() == SocketManagement.CLIENT) {
-                    myTurn = false;
+                   // myTurn = false;
                     playModel = new Human(-1, 1);
                     lbluser1.Text = me + " - O";
                     lblReplay.Visible = false;
@@ -560,6 +565,7 @@ namespace Tik_tak_toe_pro
                 lbl21.Enabled = true;
                 lbl22.Enabled = true;
                 panel1.Enabled = true;
+                labelStatus.Text = "";
             }
         }
 
@@ -567,15 +573,24 @@ namespace Tik_tak_toe_pro
         private void lblReplay_Click(object sender, EventArgs e)
         {
             //start a new game
-            if(socketManagement.flushStream()){
+            if (socketManagement.flushStream())
+            {
                 socketManagement.sendMessage("-1");
-                myTurn = true;
-                grid= new int[,]{ { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 } };
+                if (myTurn) { myTurn = false; } else { myTurn = true; }
+                grid = new int[,] { { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 } };
                 refreshVal();
                 reset();
+                threadMain.Abort();
+                setupNames();
+                if (!myTurn)
+                {
+                    threadMain.Start();
+                }
             }
             
         }
+
+        
 
         
     }

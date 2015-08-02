@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPlayVsHuman));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NetworkPlayForm));
             this.lbl02 = new System.Windows.Forms.Label();
             this.lbl12 = new System.Windows.Forms.Label();
             this.lbl22 = new System.Windows.Forms.Label();
@@ -267,7 +267,7 @@
             this.labelStatus.Text = "          ";
             this.labelStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // FormPlayVsHuman
+            // NetworkPlayForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -282,7 +282,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Location = new System.Drawing.Point(275, 100);
-            this.Name = "FormPlayVsHuman";
+            this.Name = "NetworkPlayForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
