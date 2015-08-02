@@ -83,6 +83,7 @@
             this.tbnewname.Size = new System.Drawing.Size(156, 22);
             this.tbnewname.TabIndex = 15;
             this.tbnewname.Text = "Type Your Name Here";
+           
             // 
             // pbhard
             // 
