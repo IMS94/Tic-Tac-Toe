@@ -538,7 +538,7 @@ namespace Tik_tak_toe_pro
 
 
         private void replay() {
-            myTurn = false;
+            myTurn = true;
             grid = new int[,] { { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 } };
             refreshVal();
 

@@ -212,7 +212,6 @@ namespace Tik_tak_toe_pro
                 playModel.userPlay(0, 2, grid, playModel.userMark);
                 this.gameDecision(NormalPlay.checkStatus(grid, playModel.userMark), false);
                 this.refreshVal();
-                lbl02.Enabled = false;
 
 
                 playModel.pcPlay(grid, playModel.pcMark);
@@ -231,8 +230,6 @@ namespace Tik_tak_toe_pro
                 this.gameDecision(NormalPlay.checkStatus(grid, playModel.userMark), false);
                 this.refreshVal();
 
-                lbl12.Enabled = false;
-
                 playModel.pcPlay(grid, playModel.pcMark);
                 this.gameDecision(NormalPlay.checkStatus(grid, playModel.pcMark), true);
                 this.refreshVal();
@@ -247,7 +244,6 @@ namespace Tik_tak_toe_pro
                 playModel.userPlay(2, 2, grid, playModel.userMark);
                 this.gameDecision(NormalPlay.checkStatus(grid, playModel.userMark), false);
                 this.refreshVal();
-                lbl22.Enabled = false;
 
                 playModel.pcPlay(grid, playModel.pcMark);
                 this.gameDecision(NormalPlay.checkStatus(grid, playModel.pcMark), true);
@@ -263,7 +259,6 @@ namespace Tik_tak_toe_pro
                 playModel.userPlay(0, 1, grid, playModel.userMark);
                 this.gameDecision(NormalPlay.checkStatus(grid, playModel.userMark), false);
                 this.refreshVal();
-                lbl01.Enabled = false;
 
                 playModel.pcPlay(grid, playModel.pcMark);
                 this.gameDecision(NormalPlay.checkStatus(grid, playModel.pcMark), true);
@@ -280,8 +275,6 @@ namespace Tik_tak_toe_pro
                 this.gameDecision(NormalPlay.checkStatus(grid, playModel.userMark), false);
                 this.refreshVal();
 
-                lbl11.Enabled = false;
-
                 playModel.pcPlay(grid, playModel.pcMark);
                 this.gameDecision(NormalPlay.checkStatus(grid, playModel.pcMark), true);
                 this.refreshVal();
@@ -296,7 +289,6 @@ namespace Tik_tak_toe_pro
                 playModel.userPlay(2, 1, grid, playModel.userMark);
                 this.gameDecision(NormalPlay.checkStatus(grid, playModel.userMark), false);
                 this.refreshVal();
-                lbl21.Enabled = false;
 
                 playModel.pcPlay(grid, playModel.pcMark);
                 this.gameDecision(NormalPlay.checkStatus(grid, playModel.pcMark), true);
@@ -312,7 +304,6 @@ namespace Tik_tak_toe_pro
                 playModel.userPlay(0, 0, grid, playModel.userMark);
                 this.gameDecision(NormalPlay.checkStatus(grid, playModel.userMark), false);
                 this.refreshVal();
-                lbl00.Enabled = false;
 
                 playModel.pcPlay(grid, playModel.pcMark);
                 this.gameDecision(NormalPlay.checkStatus(grid, playModel.pcMark), true);
@@ -328,7 +319,6 @@ namespace Tik_tak_toe_pro
                 playModel.userPlay(1, 0, grid, playModel.userMark);
                 this.gameDecision(NormalPlay.checkStatus(grid, playModel.userMark), false);
                 this.refreshVal();
-                lbl10.Enabled = false;
 
                 playModel.pcPlay(grid, playModel.pcMark);
                 this.gameDecision(NormalPlay.checkStatus(grid, playModel.pcMark), true);
@@ -344,7 +334,6 @@ namespace Tik_tak_toe_pro
                 playModel.userPlay(2, 0, grid, playModel.userMark);
                 this.gameDecision(NormalPlay.checkStatus(grid, playModel.userMark), false);
                 this.refreshVal();
-                lbl20.Enabled = false;
 
                 playModel.pcPlay(grid, playModel.pcMark);
                 this.gameDecision(NormalPlay.checkStatus(grid, playModel.pcMark), true);

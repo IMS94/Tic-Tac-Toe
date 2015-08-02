@@ -185,6 +185,12 @@ namespace Tik_tak_toe_pro
             
         }
 
+        private void tbnewname_Click(object sender, EventArgs e)
+        {
+            tbnewname.Text = "";
+            tbnewname.ForeColor = Color.White;
+        }
+
         
         
     }     
