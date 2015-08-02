@@ -95,6 +95,7 @@
     <Compile Include="PlayModes\Easy.cs" />
     <Compile Include="Process\DBManagement.cs" />
     <Compile Include="Process\LeaderBoard.cs" />
+    <Compile Include="Process\NamesAndScores.cs" />
     <Compile Include="Process\NormalPlay.cs" />
     <Compile Include="PlayModes\Hard.cs" />
     <Compile Include="Process\Setting.cs" />

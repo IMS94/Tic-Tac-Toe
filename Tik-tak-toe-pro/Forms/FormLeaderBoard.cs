@@ -16,6 +16,16 @@ namespace Tik_tak_toe_pro
     {
         LeaderBoard leaderBoard;
         Setting setting;
+
+         public List<int> easyBoardScore { get; set; }
+        public List<int> mediumBoardScore { get; set; }
+        public List<int> hardBoardScore { get; set; }
+
+        public List<string> easyBoardNameRefs { get; set; }
+        public List<string> mediumBoardNameRefs { get; set; }
+        public List<string> hardBoardNameRefs { get; set; }
+
+
         public FormLeaderBoard(LeaderBoard leaderBoardE,Setting settingE)
         {
             InitializeComponent();
@@ -29,7 +39,21 @@ namespace Tik_tak_toe_pro
             pbhard.BackColor = Color.Transparent;
             pbmedium.BackColor = Color.Transparent;
             lblscore.Text = this.leaderBoard.getScore(setting.current[1], setting.current[2]).ToString();
-            this.addTolist(leaderBoard.easyBoardNameRefs, leaderBoard.easyBoardScore);
+            
+            
+            NamesAndScores lists = DBManagement.getSinglePlayerScores(1);
+            easyBoardNameRefs = lists.names;
+            easyBoardScore = lists.scores;
+
+            lists = DBManagement.getSinglePlayerScores(2);
+            mediumBoardNameRefs = lists.names;
+            mediumBoardScore = lists.scores;
+
+            lists = DBManagement.getSinglePlayerScores(3);
+            hardBoardNameRefs = lists.names;
+            hardBoardScore = lists.scores;
+
+            this.addTolist(easyBoardNameRefs, easyBoardScore);
 
         }
 
@@ -46,7 +70,7 @@ namespace Tik_tak_toe_pro
             lblEasy.ForeColor = Color.Orange;
             lblMedium.ForeColor = Color.White;
             lbHard.ForeColor = Color.White;
-            this.addTolist(leaderBoard.easyBoardNameRefs, leaderBoard.easyBoardScore);
+            this.addTolist(easyBoardNameRefs,easyBoardScore);
         }
 
         private void lblMedium_Click(object sender, EventArgs e)
@@ -57,7 +81,7 @@ namespace Tik_tak_toe_pro
             lblEasy.ForeColor = Color.White;
             lblMedium.ForeColor = Color.Orange;
             lbHard.ForeColor = Color.White;
-            this.addTolist(leaderBoard.mediumBoardNameRefs, leaderBoard.mediumBoardScore);
+            this.addTolist(mediumBoardNameRefs,mediumBoardScore);
         }
 
         private void label7_Click(object sender, EventArgs e)
@@ -69,34 +93,21 @@ namespace Tik_tak_toe_pro
             lblMedium.ForeColor = Color.White;
             lbHard.ForeColor = Color.Orange;
 
-            this.addTolist(leaderBoard.hardBoardNameRefs, leaderBoard.hardBoardScore);
+            this.addTolist(hardBoardNameRefs, hardBoardScore);
         }
 
-        private void addTolist(List<string[]> boardNameRefs,List<int> scores)
+        private void addTolist(List<string> names,List<int> scores)
         { 
             lbname.Items.Clear();
             lbscore.Items.Clear();
 
-            List<string[]> names=new List<string[]>();
-
-            for (int i = 0; i < boardNameRefs.Count; i++)
+            
+            for (int i = 0; i < names.Count; i++)
             {
-                names.Add(boardNameRefs[i]);
-            }
-
-            for (int i = scores.Count - 1; i >= 0; i--)
-            {
+                lbname.Items.Add(names[i]);
                 lbscore.Items.Add(scores[i]);
-                for (int j = 0; j < names.Count; j++)
-                {
-                    if (names[j][0].Equals(scores[i].ToString()))
-                    {
-                        lbname.Items.Add(names[j][1]);
-                        names.RemoveAt(j);
-                    }
-                }
             }
-        
+
         }
         public void setinvisibleNewEntryComponents() {
             tbnewname.Visible = false;
@@ -106,6 +117,19 @@ namespace Tik_tak_toe_pro
 
         }
 
+
+
+        public int getScore(int countPC, int countUser)
+        {
+            //method to calculate score
+            int score = 50;
+            score = score + 5 * countUser - 5 * countPC;
+            return score;
+
+        }
+
+
+
         private void btadd_Click(object sender, EventArgs e)
         {
             if(tbnewname.Text.Length<3){
@@ -113,46 +137,57 @@ namespace Tik_tak_toe_pro
             }
 
             //add to database
-            DBManagement.addSinglePlayerScores(tbnewname.Text,setting.current[2],setting.difficultyLevel);
+            DBManagement.addSinglePlayerScores(tbnewname.Text,getScore(setting.current[1],setting.current[2]),setting.difficultyLevel);
 
             if(setting.difficultyLevel==1){
-                leaderBoard.addNewScore(tbnewname.Text, setting.current[1], setting.current[2], leaderBoard.easyBoardNameRefs, leaderBoard.easyBoardScore);
+                NamesAndScores lists = DBManagement.getSinglePlayerScores(1);
+                easyBoardNameRefs = lists.names;
+                easyBoardScore = lists.scores;
+               
             }
             else if (setting.difficultyLevel == 2)
             {
-                leaderBoard.addNewScore(tbnewname.Text, setting.current[1], setting.current[2], leaderBoard.mediumBoardNameRefs, leaderBoard.mediumBoardScore);
+                NamesAndScores lists = DBManagement.getSinglePlayerScores(2);
+                mediumBoardNameRefs = lists.names;
+                mediumBoardScore = lists.scores;
             }
             else 
             {
-                leaderBoard.addNewScore(tbnewname.Text, setting.current[1], setting.current[2], leaderBoard.hardBoardNameRefs, leaderBoard.hardBoardScore);
-
+                NamesAndScores lists = DBManagement.getSinglePlayerScores(3);
+                hardBoardNameRefs = lists.names;
+                hardBoardScore = lists.scores;
             }
             if(pbeasy.BackColor.Equals(Color.Orange))
             {
                 pbeasy.BackColor = Color.Orange;
                 pbhard.BackColor = Color.Transparent;
                 pbmedium.BackColor = Color.Transparent;
-                this.addTolist(leaderBoard.easyBoardNameRefs, leaderBoard.easyBoardScore);
+                this.addTolist(easyBoardNameRefs, easyBoardScore);
             }
             else if(pbhard.BackColor.Equals(Color.Orange))
             {
                 pbeasy.BackColor = Color.Transparent;
                 pbhard.BackColor = Color.Orange;
                 pbmedium.BackColor = Color.Transparent;
-                this.addTolist(leaderBoard.hardBoardNameRefs, leaderBoard.hardBoardScore);
+                this.addTolist(hardBoardNameRefs, hardBoardScore);
             }
             else if (pbmedium.BackColor.Equals(Color.Orange))
             {
                 pbeasy.BackColor = Color.Transparent;
                 pbhard.BackColor = Color.Transparent;
                 pbmedium.BackColor = Color.Orange;
-                this.addTolist(leaderBoard.mediumBoardNameRefs, leaderBoard.mediumBoardScore);
+                this.addTolist(mediumBoardNameRefs, mediumBoardScore);
             }
             setting.current[0] = 0;
             setting.current[1] = 0;
             setting.current[2] = 0;
             btadd.Enabled = false;
             
+        }
+
+        private void tbnewname_TextChanged(object sender, EventArgs e)
+        {
+            tbnewname.Text = "";
         }
         
         
