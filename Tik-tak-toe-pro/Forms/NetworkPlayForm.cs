@@ -42,7 +42,7 @@ namespace Tik_tak_toe_pro
 
             setting = settingE;
 
-            if (myTurn) { myTurn = false; } else if (myTurn == false) { myTurn = true; } else { myTurn = true; }
+            myTurn = true;
             setupNames();   //set the names of the users.
             refreshVal();
 
@@ -77,7 +77,7 @@ namespace Tik_tak_toe_pro
             while(true){
                 if (socketManagement.getConnectionType() == SocketManagement.SERVER)
                 {
-                 //   myTurn = true;
+                    myTurn = true;
                     playModel = new Human(1, -1);
                     lbluser1.Text = me + " - X";
                     socketManagement.sendMessage(me);
@@ -94,7 +94,7 @@ namespace Tik_tak_toe_pro
                     break;
                 }
                 else if (socketManagement.getConnectionType() == SocketManagement.CLIENT) {
-                   // myTurn = false;
+                    myTurn = false;
                     playModel = new Human(-1, 1);
                     lbluser1.Text = me + " - O";
                     lblReplay.Visible = false;
@@ -576,16 +576,11 @@ namespace Tik_tak_toe_pro
             if (socketManagement.flushStream())
             {
                 socketManagement.sendMessage("-1");
-                if (myTurn) { myTurn = false; } else { myTurn = true; }
+                myTurn = true;
                 grid = new int[,] { { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 } };
                 refreshVal();
                 reset();
-                threadMain.Abort();
-                setupNames();
-                if (!myTurn)
-                {
-                    threadMain.Start();
-                }
+                
             }
             
         }
