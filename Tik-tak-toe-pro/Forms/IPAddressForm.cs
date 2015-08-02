@@ -82,6 +82,7 @@ namespace Tik_tak_toe_pro
             bool hasStarted = sm.startAsClient();
 
             if (hasStarted) {
+                waitLabel.Visible = true;
                 hostButton.Enabled = false;
                 clientButton.Enabled = false;
                  
@@ -117,9 +118,8 @@ namespace Tik_tak_toe_pro
             SocketManagement sm = new SocketManagement(ip, 8000);
             bool hasStarted = sm.startAsServer();
 
-            waitLabel.Visible = true;
-
             if(hasStarted){
+                waitLabel.Visible = true;
                 hostButton.Enabled = false;
                 clientButton.Enabled = false;
                 
