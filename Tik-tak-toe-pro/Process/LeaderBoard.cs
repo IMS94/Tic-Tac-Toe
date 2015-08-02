@@ -13,9 +13,9 @@ namespace Tik_tak_toe_pro
         public List<int> mediumBoardScore { get; set; }
         public List<int> hardBoardScore { get; set; }
 
-        public List<string[]> easyBoardNameRefs { get; set; }
-        public List<string[]> mediumBoardNameRefs { get; set; }
-        public List<string[]> hardBoardNameRefs { get; set; }
+        public List<string> easyBoardNameRefs { get; set; }
+        public List<string> mediumBoardNameRefs { get; set; }
+        public List<string> hardBoardNameRefs { get; set; }
 
         public LeaderBoard()
         {
@@ -23,9 +23,9 @@ namespace Tik_tak_toe_pro
             mediumBoardScore = new List<int>();
             hardBoardScore = new List<int>();
 
-            easyBoardNameRefs = new List<string[]>();
-            mediumBoardNameRefs = new List<string[]>();
-            hardBoardNameRefs = new List<string[]>();
+            easyBoardNameRefs = new List<string>();
+            mediumBoardNameRefs = new List<string>();
+            hardBoardNameRefs = new List<string>();
         }
 
 
@@ -36,16 +36,13 @@ namespace Tik_tak_toe_pro
             return score;
         
         }
-        public void addNewScore(string name, int countPC, int countUser, List<string[]> boardNames,List<int> boardScore)
+        public void addNewScore(string name, int countPC, int countUser, List<string> boardNames,List<int> boardScore)
         {
             int score;
             score = getScore(countPC, countUser);
-            string[] reference = new string[2];
-            reference[0] = score.ToString();
-            reference[1] = name;
             
             //add new reference and score to lists
-            boardNames.Add(reference);
+            boardNames.Add(name);
             boardScore.Add(score);
             
             //sort the list
@@ -53,6 +50,7 @@ namespace Tik_tak_toe_pro
             
             //if count >10 remove min
             int minScore;
+
             if (boardScore.Count > 10)
             { 
                 minScore=boardScore[0];

@@ -72,6 +72,7 @@ namespace Tik_tak_toe_pro
 
         private void pbVsComputer_Click(object sender, EventArgs e)
         {
+            DBManagement.getSinglePlayerScores(1);
             FormPlayVsComputer vsPc = new FormPlayVsComputer(setting);
             vsPc.Visible = true;
             this.Visible = false;
