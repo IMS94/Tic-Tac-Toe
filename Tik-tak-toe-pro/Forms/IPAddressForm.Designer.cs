@@ -28,9 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IPAddressForm));
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBoxLevels = new System.Windows.Forms.GroupBox();
+            this.waitLabel = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.connectIpBox = new System.Windows.Forms.TextBox();
+            this.ipListBox = new System.Windows.Forms.ListBox();
             this.nameBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -40,10 +43,6 @@
             this.clientButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.ipListBox = new System.Windows.Forms.ListBox();
-            this.connectIpBox = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.waitLabel = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.groupBoxLevels.SuspendLayout();
             this.SuspendLayout();
@@ -80,6 +79,48 @@
             this.groupBoxLevels.TabIndex = 5;
             this.groupBoxLevels.TabStop = false;
             this.groupBoxLevels.Text = "Enter IP Adress";
+            // 
+            // waitLabel
+            // 
+            this.waitLabel.AutoSize = true;
+            this.waitLabel.Font = new System.Drawing.Font("Segoe UI Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.waitLabel.Location = new System.Drawing.Point(105, 347);
+            this.waitLabel.Name = "waitLabel";
+            this.waitLabel.Size = new System.Drawing.Size(207, 19);
+            this.waitLabel.TabIndex = 18;
+            this.waitLabel.Text = "Please Wait for the other player ...";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(39, 274);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(103, 21);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "or Connect to";
+            // 
+            // connectIpBox
+            // 
+            this.connectIpBox.BackColor = System.Drawing.SystemColors.MenuText;
+            this.connectIpBox.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.connectIpBox.ForeColor = System.Drawing.SystemColors.Window;
+            this.connectIpBox.Location = new System.Drawing.Point(39, 303);
+            this.connectIpBox.Name = "connectIpBox";
+            this.connectIpBox.Size = new System.Drawing.Size(126, 29);
+            this.connectIpBox.TabIndex = 15;
+            // 
+            // ipListBox
+            // 
+            this.ipListBox.BackColor = System.Drawing.SystemColors.MenuText;
+            this.ipListBox.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ipListBox.ForeColor = System.Drawing.SystemColors.Window;
+            this.ipListBox.FormattingEnabled = true;
+            this.ipListBox.ItemHeight = 21;
+            this.ipListBox.Location = new System.Drawing.Point(39, 179);
+            this.ipListBox.Name = "ipListBox";
+            this.ipListBox.Size = new System.Drawing.Size(126, 88);
+            this.ipListBox.TabIndex = 14;
             // 
             // nameBox
             // 
@@ -180,54 +221,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "IP";
             // 
-            // ipListBox
-            // 
-            this.ipListBox.BackColor = System.Drawing.SystemColors.MenuText;
-            this.ipListBox.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ipListBox.ForeColor = System.Drawing.SystemColors.Window;
-            this.ipListBox.FormattingEnabled = true;
-            this.ipListBox.ItemHeight = 21;
-            this.ipListBox.Location = new System.Drawing.Point(39, 179);
-            this.ipListBox.Name = "ipListBox";
-            this.ipListBox.Size = new System.Drawing.Size(126, 88);
-            this.ipListBox.TabIndex = 14;
-            // 
-            // connectIpBox
-            // 
-            this.connectIpBox.BackColor = System.Drawing.SystemColors.MenuText;
-            this.connectIpBox.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.connectIpBox.ForeColor = System.Drawing.SystemColors.Window;
-            this.connectIpBox.Location = new System.Drawing.Point(39, 303);
-            this.connectIpBox.Name = "connectIpBox";
-            this.connectIpBox.Size = new System.Drawing.Size(126, 29);
-            this.connectIpBox.TabIndex = 15;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(39, 274);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(103, 21);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "or Connect to";
-            // 
-            // waitLabel
-            // 
-            this.waitLabel.AutoSize = true;
-            this.waitLabel.Font = new System.Drawing.Font("Segoe UI Light", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.waitLabel.Location = new System.Drawing.Point(105, 347);
-            this.waitLabel.Name = "waitLabel";
-            this.waitLabel.Size = new System.Drawing.Size(207, 19);
-            this.waitLabel.TabIndex = 18;
-            this.waitLabel.Text = "Please Wait for the other player ...";
-            // 
             // IPAddressForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::Tik_tak_toe_pro.Properties.Resources.footbal_field;
             this.ClientSize = new System.Drawing.Size(375, 457);
             this.ControlBox = false;
             this.Controls.Add(this.panel2);
