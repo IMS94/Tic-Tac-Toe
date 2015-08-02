@@ -129,7 +129,10 @@ namespace Tik_tak_toe_pro
                     lbluser1.ForeColor = Color.DimGray;
                 }
 
+                //check if one of them won
                 this.gameDecision(NormalPlay.checkStatus(grid, playModel.user1Mark), false);
+                this.gameDecision(NormalPlay.checkStatus(grid, playModel.user1Mark), true);
+
             }
         }
 
@@ -374,7 +377,10 @@ namespace Tik_tak_toe_pro
             {
                 myTurn = false;
                 playModel.userPlay(X, Y, grid, playModel.user1Mark);
-                this.gameDecision(NormalPlay.checkStatus(grid, playModel.user1Mark), false);
+
+                //check if one of them has won
+                //this.gameDecision(NormalPlay.checkStatus(grid, playModel.user1Mark), false);
+                //this.gameDecision(NormalPlay.checkStatus(grid, playModel.user1Mark), true);
                 
                 refreshVal();
                 
@@ -400,14 +406,14 @@ namespace Tik_tak_toe_pro
             if(b && s.Equals("win"))
                 {
                     panel1.BackColor = Color.DarkGray;
-                    labelStatus.Text = "Player 2 Won";
+                    labelStatus.Text = opponent+" Won";
                     panel1.Enabled = false;
 
                 }
             else if (!b && s.Equals("win"))
             {
                 panel1.BackColor = Color.DarkGray;
-                labelStatus.Text = "Player 1 Won";
+                labelStatus.Text = me+" Won";
                 panel1.Enabled = false;
 
             }

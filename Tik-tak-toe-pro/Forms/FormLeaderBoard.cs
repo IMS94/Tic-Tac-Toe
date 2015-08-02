@@ -185,10 +185,6 @@ namespace Tik_tak_toe_pro
             
         }
 
-        private void tbnewname_TextChanged(object sender, EventArgs e)
-        {
-            tbnewname.Text = "";
-        }
         
         
     }     
