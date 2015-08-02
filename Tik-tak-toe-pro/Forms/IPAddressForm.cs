@@ -99,7 +99,6 @@ namespace Tik_tak_toe_pro
 
         private void hostButton_Click(object sender, EventArgs e)
         {
-            
             if (nameBox.Text.Length < 2)
             {
                 System.Windows.Forms.MessageBox.Show("Please enter a valid name !");
