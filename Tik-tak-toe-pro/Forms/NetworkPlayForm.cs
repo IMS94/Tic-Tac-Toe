@@ -131,7 +131,7 @@ namespace Tik_tak_toe_pro
 
                 //check if one of them won
                 this.gameDecision(NormalPlay.checkStatus(grid, playModel.user1Mark), false);
-                this.gameDecision(NormalPlay.checkStatus(grid, playModel.user1Mark), true);
+                this.gameDecision(NormalPlay.checkStatus(grid, playModel.user2Mark), true);
 
             }
         }
