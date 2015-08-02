@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Imaging;
 using System.Net;
+using System.Net.Sockets;
 
 namespace Tik_tak_toe_pro
 {
@@ -19,6 +20,9 @@ namespace Tik_tak_toe_pro
         {
             InitializeComponent();
             this.setting = setting;
+            ipListBox.Items.Clear();
+            ipListBox.Items.Add(getIPAddresses());
+            waitLabel.Visible = false;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -26,6 +30,22 @@ namespace Tik_tak_toe_pro
             MultiplayerForm multiplayerForm = new MultiplayerForm(setting);
             multiplayerForm.Visible = true;
             this.Visible = false;
+        }
+
+
+
+        private String getIPAddresses() {
+            IPHostEntry host;
+            string localIP = "?";
+            host = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (IPAddress ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    localIP = ip.ToString();
+                }
+            }
+            return localIP;
         }
 
 
@@ -44,8 +64,8 @@ namespace Tik_tak_toe_pro
          * To connect as the client
          */
         private void clientButton_Click(object sender, EventArgs e)
-        {
-            if (!verifyIPAddress(ipText.Text)) 
+        {   
+            if (!verifyIPAddress(connectIpBox.Text)) 
             {
                 System.Windows.Forms.MessageBox.Show("Entered IP Adress is not valid !");
                 return;
@@ -58,60 +78,51 @@ namespace Tik_tak_toe_pro
 
             //start host.
             Console.WriteLine("Connected!");
-            SocketManagement sm = new SocketManagement(ipText.Text,8000);
+            SocketManagement sm = new SocketManagement(connectIpBox.Text, 8000);
             bool hasStarted = sm.startAsClient();
 
             if (hasStarted) {
                 hostButton.Enabled = false;
                 clientButton.Enabled = false;
-                /* 
-                 * Then open the playing window and assign names and signs.
-                 */
+                 
+                 // Then open the playing window and assign names and signs.
+                 
 
                 NetworkPlayForm networkForm = new NetworkPlayForm(setting,sm,nameBox.Text);
                 networkForm.Visible = true;
                 this.Visible = false;
 
 
-                /*int[][]data=sm.getBoard();
-                
-                for (int y = 0; y < data.Length; y++)
-                {
-                    for (int x = 0; x < 3; x++)
-                    {
-                        Console.WriteLine(data[y][x]);
-                    }
-                }*/
             }
         }
 
         private void hostButton_Click(object sender, EventArgs e)
         {
-            if (!verifyIPAddress(ipText.Text))
-            {
-                System.Windows.Forms.MessageBox.Show("Entered IP Adress is not valid !");
-                return;
-            }
-
+            
             if (nameBox.Text.Length < 2)
             {
                 System.Windows.Forms.MessageBox.Show("Please enter a valid name !");
                 return;
             }
+
+            String ip=ipListBox.SelectedItem.ToString();
+
+            if (!verifyIPAddress(ip))
+            {
+                System.Windows.Forms.MessageBox.Show("Entered IP Adress is not valid !");
+                return;
+            }
+
             Console.WriteLine("Hosted!");
-            SocketManagement sm = new SocketManagement(ipText.Text, 8000);
+            SocketManagement sm = new SocketManagement(ip, 8000);
             bool hasStarted = sm.startAsServer();
-            
+
+            waitLabel.Visible = true;
+
             if(hasStarted){
                 hostButton.Enabled = false;
                 clientButton.Enabled = false;
-                /*int[][] grid=new int[3][];
-                for (int y = 0; y < grid.Length; y++)
-                    for (int x = 0; x < 3; x++)
-                        grid[y][x] = 1;
-                while(true)
-                sm.sendBoard(grid);*/
-
+                
                 NetworkPlayForm networkForm = new NetworkPlayForm(setting,sm,nameBox.Text);
                 networkForm.Visible = true;
                 this.Visible = false;

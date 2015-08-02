@@ -47,9 +47,9 @@ namespace Tik_tak_toe_pro
                 {
                     refreshVal();
                     grid = socketManagement.getBoard();
-                    refreshVal();
                     myTurn = true;
-
+                    refreshVal();
+                    
                 }).Start();
                 
             }
@@ -80,6 +80,8 @@ namespace Tik_tak_toe_pro
                     myTurn = false;
                     playModel = new Human(-1, 1);
                     lbluser1.Text = me + " - O";
+                    lblReplay.Visible = false;
+
                     while (true)
                     {
                         String name = socketManagement.getMessage();
@@ -130,8 +132,9 @@ namespace Tik_tak_toe_pro
                 }
 
                 //check if one of them won
+                //user1=false, user2=true
                 this.gameDecision(NormalPlay.checkStatus(grid, playModel.user1Mark), false);
-                this.gameDecision(NormalPlay.checkStatus(grid, playModel.user1Mark), true);
+                this.gameDecision(NormalPlay.checkStatus(grid, playModel.user2Mark), true);
 
             }
         }
@@ -423,10 +426,9 @@ namespace Tik_tak_toe_pro
 
         private void lblReplay_Click(object sender, EventArgs e)
         {
+            //start a new game
             if(socketManagement.flushStream()){
-                NetworkPlayForm networkForm = new NetworkPlayForm(setting, socketManagement, me);
-                networkForm.Visible = true;
-                this.Visible = false;    
+                    
             }
             
         }
