@@ -142,10 +142,17 @@ namespace Tik_tak_toe_pro
         }
 
         public String getMessage() {
-            byte[] bytes = new byte[255];
-            stream.Read(bytes, 0, bytes.Length);
-            string message = new ASCIIEncoding().GetString(bytes);
-            return message;
+            try
+            {
+                byte[] bytes = new byte[255];
+                stream.Read(bytes, 0, bytes.Length);
+                string message = new ASCIIEncoding().GetString(bytes);
+                return message;
+            }
+            catch (Exception ex) {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+                return null;
+            }
         }
 
 

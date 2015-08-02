@@ -46,7 +46,18 @@ namespace Tik_tak_toe_pro
                 new Thread(() =>
                 {
                     refreshVal();
-                    grid = socketManagement.getBoard();
+                    //grid = socketManagement.getBoard();
+                    String message = socketManagement.getMessage();
+                    message = message.Replace("\0", String.Empty);
+                    if (String.Compare(message, "-1") == 0)
+                    {
+                        //then replay
+                        replay();
+                        return;
+                    }
+                    else {
+                        grid = getBoard(message);
+                    }
                     myTurn = true;
                     refreshVal();
                     
@@ -367,7 +378,20 @@ namespace Tik_tak_toe_pro
         private void ListenChanges() { 
             
             socketManagement.sendBoard(grid);
-            grid = socketManagement.getBoard();
+            //grid = socketManagement.getBoard();
+            String message = socketManagement.getMessage();
+            message = message.Replace("\0", String.Empty);
+            if (String.Compare(message, "-1") == 0)
+            {
+                //then replay
+                replay();
+                return;
+            }
+            else
+            {
+                grid = getBoard(message);
+            }
+
             myTurn = true;
             refreshVal();
         }
@@ -395,6 +419,55 @@ namespace Tik_tak_toe_pro
             }
             
         }
+
+
+        private int[,] getBoard(String message) { 
+            int[,] grid = { { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 } };
+                
+                char[] charOfMessage = message.ToCharArray();
+
+                for (int y = 0; y < 3; y++)
+                {
+                    for (int x = 0; x < 3; x++)
+                    {
+                        /*
+                         * Retrieve the grid with -1 replaced for 2
+                         */
+                        grid[y, x] = Int32.Parse("" + charOfMessage[(y * 3) + x]);
+                        if (grid[y, x] == 2)
+                        {
+                            grid[y, x] = -1;
+                        }
+                    }
+                }
+                return grid;
+        }
+
+
+        private String setBoard() {
+            string data = "";
+            for (int y = 0; y < 3; y++)
+            {
+                for (int x = 0; x < 3; x++)
+                {
+                    /*
+                     * Assign 2 for (-1)
+                     */
+                    if (grid[y, x] == -1)
+                    {
+                        data += 2;
+                    }
+                    else
+                    {
+                        data += grid[y, x];
+                    }
+                }
+            }
+            return data;
+        }
+
+
+
         //false=user1  true =user2
         private void gameDecision(string s,bool b)
         {
@@ -424,11 +497,26 @@ namespace Tik_tak_toe_pro
 
         }
 
+
+
+        private void replay() {
+            myTurn = false;
+            grid = new int[,] { { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 } };
+            refreshVal();
+            new Thread(() => {
+                ListenChanges();
+            });
+        }
+
+
         private void lblReplay_Click(object sender, EventArgs e)
         {
             //start a new game
             if(socketManagement.flushStream()){
-                    
+                socketManagement.sendMessage("-1");
+                myTurn = true;
+                grid= new int[,]{ { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0 } };
+                refreshVal();
             }
             
         }
