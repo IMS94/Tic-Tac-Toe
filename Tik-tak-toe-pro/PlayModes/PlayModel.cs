@@ -8,6 +8,7 @@ namespace Tik_tak_toe_pro
 {
     abstract class PlayModel
     {
+        
         public int userMark { get; set; }
         public int pcMark { get; set; }
 
@@ -27,6 +28,9 @@ namespace Tik_tak_toe_pro
 
         protected int countUser = 0;
         protected int countPC = 0;
+
+        protected int previousPCX=-1;
+        protected int previousPCY=-1;
         public abstract void setStarted(bool b);
         public abstract void userPlay(int X, int Y, int[,] grid, int turn);
         public abstract string pcPlay(int[,] grid, int turn);

@@ -201,121 +201,155 @@ namespace Tik_tak_toe_pro
             setting.current = new int[3];
             StartForm st = new StartForm(setting);
             st.Visible = true;
-            
             this.Dispose();
            
         }
 
         private void lbl02_Click(object sender, EventArgs e)
         {
-            playModel.userPlay(0, 2, grid, playModel.userMark);
-            this.gameDecision(NormalPlay.checkStatus(grid, playModel.userMark), false);
-            this.refreshVal();
-           
-            playModel.pcPlay(grid, playModel.pcMark);
-            this.gameDecision(NormalPlay.checkStatus(grid, playModel.pcMark), true);
-            this.refreshVal();
-            lbl02.Enabled = false;
+            if (grid[0, 2] == 0)
+            {
+                playModel.userPlay(0, 2, grid, playModel.userMark);
+                this.gameDecision(NormalPlay.checkStatus(grid, playModel.userMark), false);
+                this.refreshVal();
+                lbl02.Enabled = false;
+
+
+                playModel.pcPlay(grid, playModel.pcMark);
+                this.gameDecision(NormalPlay.checkStatus(grid, playModel.pcMark), true);
+                this.refreshVal();
+            }
             
         }
 
         private void lbl12_Click(object sender, EventArgs e)
         {
-            playModel.userPlay(1, 2, grid, playModel.userMark);
-            this.gameDecision(NormalPlay.checkStatus(grid, playModel.userMark), false);
-            this.refreshVal();
-           
-            playModel.pcPlay(grid, playModel.pcMark);
-            this.gameDecision(NormalPlay.checkStatus(grid, playModel.pcMark), true);
-            this.refreshVal();
-            lbl12.Enabled = false;
-        
+            if (grid[1, 2] == 0)
+            {
+
+                playModel.userPlay(1, 2, grid, playModel.userMark);
+                this.gameDecision(NormalPlay.checkStatus(grid, playModel.userMark), false);
+                this.refreshVal();
+
+                lbl12.Enabled = false;
+
+                playModel.pcPlay(grid, playModel.pcMark);
+                this.gameDecision(NormalPlay.checkStatus(grid, playModel.pcMark), true);
+                this.refreshVal();
+            }
         }
 
         private void lbl22_Click(object sender, EventArgs e)
         {
-            playModel.userPlay(2, 2, grid, playModel.userMark);
-            this.gameDecision(NormalPlay.checkStatus(grid, playModel.userMark), false);
-            this.refreshVal();
-           
-            playModel.pcPlay(grid, playModel.pcMark);
-            this.gameDecision(NormalPlay.checkStatus(grid, playModel.pcMark), true);
-            this.refreshVal();
-            lbl22.Enabled = false;
-        
+            if (grid[2, 2] == 0)
+            {
+
+                playModel.userPlay(2, 2, grid, playModel.userMark);
+                this.gameDecision(NormalPlay.checkStatus(grid, playModel.userMark), false);
+                this.refreshVal();
+                lbl22.Enabled = false;
+
+                playModel.pcPlay(grid, playModel.pcMark);
+                this.gameDecision(NormalPlay.checkStatus(grid, playModel.pcMark), true);
+                this.refreshVal();
+            }
         }
 
         private void lbl01_Click(object sender, EventArgs e)
         {
-            playModel.userPlay(0, 1, grid, playModel.userMark);
-            this.gameDecision(NormalPlay.checkStatus(grid, playModel.userMark), false);
-            this.refreshVal();
-           
-            playModel.pcPlay(grid, playModel.pcMark);
-            this.gameDecision(NormalPlay.checkStatus(grid, playModel.pcMark), true);
-            this.refreshVal();
-            lbl01.Enabled = false;
+            if (grid[0, 1] == 0)
+            {
+
+                playModel.userPlay(0, 1, grid, playModel.userMark);
+                this.gameDecision(NormalPlay.checkStatus(grid, playModel.userMark), false);
+                this.refreshVal();
+                lbl01.Enabled = false;
+
+                playModel.pcPlay(grid, playModel.pcMark);
+                this.gameDecision(NormalPlay.checkStatus(grid, playModel.pcMark), true);
+                this.refreshVal();
+            }
         }
 
         private void lbl11_Click(object sender, EventArgs e)
         {
-            playModel.userPlay(1, 1, grid, playModel.userMark);
-            this.gameDecision(NormalPlay.checkStatus(grid, playModel.userMark), false);
-            this.refreshVal();
-           
-            playModel.pcPlay(grid, playModel.pcMark);
-            this.gameDecision(NormalPlay.checkStatus(grid, playModel.pcMark), true);
-            this.refreshVal();
-            lbl11.Enabled = false;
-        
+            if (grid[1, 1] == 0)
+            {
+
+                playModel.userPlay(1, 1, grid, playModel.userMark);
+                this.gameDecision(NormalPlay.checkStatus(grid, playModel.userMark), false);
+                this.refreshVal();
+
+                lbl11.Enabled = false;
+
+                playModel.pcPlay(grid, playModel.pcMark);
+                this.gameDecision(NormalPlay.checkStatus(grid, playModel.pcMark), true);
+                this.refreshVal();
+            }
         }
 
         private void lbl21_Click(object sender, EventArgs e)
         {
-            playModel.userPlay(2, 1, grid, playModel.userMark);
-            this.gameDecision(NormalPlay.checkStatus(grid, playModel.userMark), false);
-            this.refreshVal();
-          
-            playModel.pcPlay(grid, playModel.pcMark);
-            this.gameDecision(NormalPlay.checkStatus(grid, playModel.pcMark), true);
-            this.refreshVal();
-            lbl21.Enabled = false;
+            if (grid[2, 1] == 0)
+            {
+
+                playModel.userPlay(2, 1, grid, playModel.userMark);
+                this.gameDecision(NormalPlay.checkStatus(grid, playModel.userMark), false);
+                this.refreshVal();
+                lbl21.Enabled = false;
+
+                playModel.pcPlay(grid, playModel.pcMark);
+                this.gameDecision(NormalPlay.checkStatus(grid, playModel.pcMark), true);
+                this.refreshVal();
+            }
         }
 
         private void lbl00_Click(object sender, EventArgs e)
         {
-            playModel.userPlay(0, 0, grid, playModel.userMark);
-            this.gameDecision(NormalPlay.checkStatus(grid, playModel.userMark), false);
-            this.refreshVal();
-         
-            playModel.pcPlay(grid, playModel.pcMark);
-            this.gameDecision(NormalPlay.checkStatus(grid, playModel.pcMark), true);
-            this.refreshVal();
-            lbl00.Enabled = false;
+            if (grid[0, 0] == 0)
+            {
+
+                playModel.userPlay(0, 0, grid, playModel.userMark);
+                this.gameDecision(NormalPlay.checkStatus(grid, playModel.userMark), false);
+                this.refreshVal();
+                lbl00.Enabled = false;
+
+                playModel.pcPlay(grid, playModel.pcMark);
+                this.gameDecision(NormalPlay.checkStatus(grid, playModel.pcMark), true);
+                this.refreshVal();
+            }
         }
 
         private void lbl10_Click(object sender, EventArgs e)
         {
-            playModel.userPlay(1, 0, grid, playModel.userMark);
-            this.gameDecision(NormalPlay.checkStatus(grid, playModel.userMark), false);
-            this.refreshVal();
-           
-            playModel.pcPlay(grid, playModel.pcMark);
-            this.gameDecision(NormalPlay.checkStatus(grid, playModel.pcMark), true);
-            this.refreshVal();
-            lbl10.Enabled = false;
+            if (grid[1, 0] == 0)
+            {
+
+                playModel.userPlay(1, 0, grid, playModel.userMark);
+                this.gameDecision(NormalPlay.checkStatus(grid, playModel.userMark), false);
+                this.refreshVal();
+                lbl10.Enabled = false;
+
+                playModel.pcPlay(grid, playModel.pcMark);
+                this.gameDecision(NormalPlay.checkStatus(grid, playModel.pcMark), true);
+                this.refreshVal();
+            }
         }
 
         private void lbl20_Click(object sender, EventArgs e)
         {
-            playModel.userPlay(2, 0, grid, playModel.userMark);
-            this.gameDecision(NormalPlay.checkStatus(grid, playModel.userMark),false);
-            this.refreshVal();
-           
-            playModel.pcPlay(grid, playModel.pcMark);
-            this.gameDecision(NormalPlay.checkStatus(grid, playModel.pcMark), true);
-            this.refreshVal();
-            lbl20.Enabled = false;
+            if (grid[2, 0] == 0)
+            {
+
+                playModel.userPlay(2, 0, grid, playModel.userMark);
+                this.gameDecision(NormalPlay.checkStatus(grid, playModel.userMark), false);
+                this.refreshVal();
+                lbl20.Enabled = false;
+
+                playModel.pcPlay(grid, playModel.pcMark);
+                this.gameDecision(NormalPlay.checkStatus(grid, playModel.pcMark), true);
+                this.refreshVal();
+            }
         }
 
         //false=user  true =PC
